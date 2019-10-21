@@ -10,6 +10,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-syntastic/syntastic'
 
 let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-tslint', 'coc-prettier']
 
@@ -45,6 +46,16 @@ set smartcase
 "Theme
 let g:space_vim_dark_background = 233
 colorscheme space-vim-dark
+
+"Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 let mapleader="\<space>"
 nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
