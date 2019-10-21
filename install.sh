@@ -9,3 +9,6 @@ ln -s ~/git/dotfiles/coc-settings.json ~/.config/nvim
 
 # tmux
 ln -s ~/git/dotfiles/.tmux.conf ~/
+
+# vim-plug install plugs
+nvim +PlugInstall +UpdateRemotePlugins +qall
