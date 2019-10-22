@@ -11,11 +11,12 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-fugitive'
 
 let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-tslint', 'coc-prettier']
 
 call plug#end()
-
+set clipboard+=unnamedplus
 let g:deoplete#enable_at_startup = 1
 
 "Highlighting
