@@ -16,7 +16,11 @@ Plug 'tpope/vim-fugitive'
 let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-tslint', 'coc-prettier']
 
 call plug#end()
+
+"Use system clipboard always
 set clipboard+=unnamedplus
+
+"deoplete enable from the get-go
 let g:deoplete#enable_at_startup = 1
 
 "Highlighting
@@ -58,13 +62,18 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+"Edit/Source init.vim
 let mapleader="\<space>"
 nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
+nnoremap <C-Y> <C-R>
 
 noremap Y y$
 
+"NERDTree
 map <C-N> :NERDTreeToggle<CR>
 autocmd vimenter * NERDTree
 autocmd vimenter * wincmd p
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+let NERDTreeShowHidden=1
