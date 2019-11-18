@@ -17,6 +17,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'tpope/vim-fugitive'
 
+"Other stuff
+Plug 'junegunn/goyo.vim'
+Plug 'janko/vim-test'
+
 call plug#end()
 
 let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-tslint', 'coc-pairs']
@@ -52,9 +56,15 @@ set nohlsearch
 set ignorecase
 set smartcase
 
+"vim-test
+let g:test#javascript#ava#file_pattern = '.*\.test\.ts'
+
 "Other
 set updatetime=300
 set signcolumn=yes
+set splitbelow splitright
+
+autocmd BufWritePre * %s/\s\+$//e
 
 "Theme
 let g:space_vim_dark_background = 233
@@ -83,6 +93,10 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 nmap <F2> <Plug>(coc-rename)
 nmap <silent> gd <Plug>(coc-definition)
+nmap <leader>tf :TestFile<CR>
+nmap <leader>ta :TestSuite<CR>
+
+map <leader>f :Goyo \| set linebreak<CR>
 
 "Functions
 function! SyncTree()
