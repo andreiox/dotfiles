@@ -1,30 +1,31 @@
 call plug#begin('~/.config/nvim/bundle')
 
+"Theme
 Plug 'liuchengxu/space-vim-dark'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-surround'
 Plug 'bling/vim-airline'
-Plug 'jiangmiao/auto-pairs'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
+
+"NERDTree
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'airblade/vim-gitgutter'
+
+"Code stuff
+Plug 'scrooloose/nerdcommenter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'vim-syntastic/syntastic'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'tpope/vim-fugitive'
 
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-tslint', 'coc-prettier']
-
 call plug#end()
+
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-tslint', 'coc-pairs']
 
 "Leader
 let mapleader="\<space>"
 
 "Use system clipboard always
 set clipboard+=unnamedplus
-
-"deoplete enable from the get-go
-let g:deoplete#enable_at_startup = 1
 
 "Highlighting
 set inccommand=split
@@ -51,19 +52,13 @@ set nohlsearch
 set ignorecase
 set smartcase
 
+"Other
+set updatetime=300
+set signcolumn=yes
+
 "Theme
 let g:space_vim_dark_background = 233
 colorscheme space-vim-dark
-
-"Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 "NERDTree
 map <C-N> :NERDTreeToggle<CR>
@@ -72,12 +67,31 @@ autocmd vimenter * wincmd p
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let NERDTreeShowHidden=1
+let g:NERDTreeGitStatusWithFlags = 1
+let g:NERDTreeIgnore = ['^node_modules$']
+
+autocmd BufEnter * call SyncTree()
 
 "Remaps
 noremap Y y$
 nnoremap <C-Y> <C-R>
-nnoremap <F2> :TSRename<cr>
-nnoremap <F4> :TSDefPreview<cr>
 
 nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
+
+inoremap <silent><expr> <c-space> coc#refresh()
+
+nmap <F2> <Plug>(coc-rename)
+nmap <silent> gd <Plug>(coc-definition)
+
+"Functions
+function! SyncTree()
+  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+
+function! IsNERDTreeOpen()
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
