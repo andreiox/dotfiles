@@ -23,7 +23,7 @@ Plug 'janko/vim-test'
 
 call plug#end()
 
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-tslint', 'coc-pairs']
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-tslint', 'coc-pairs', 'coc-python', 'coc-prettier']
 
 "Leader
 let mapleader="\<space>"
@@ -58,6 +58,7 @@ set smartcase
 
 "vim-test
 let g:test#javascript#ava#file_pattern = '.*\.test\.ts'
+let test#strategy = 'neovim'
 
 "Other
 set updatetime=300
@@ -78,7 +79,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 let NERDTreeShowHidden=1
 let g:NERDTreeGitStatusWithFlags = 1
-let g:NERDTreeIgnore = ['^node_modules$']
+let g:NERDTreeIgnore = ['^node_modules$', '^.git']
 
 autocmd BufEnter * call SyncTree()
 

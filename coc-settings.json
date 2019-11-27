@@ -1,5 +1,11 @@
 {
     "suggest.noselect": false,
-    "prettier.tslintIntegration": true,
-    "prettier.eslintIntegration": false
+
+    "prettier.eslintIntegration": true,
+    "prettier.useTabs": true,
+    "prettier.singleQuote": true,
+    "prettier.semi": false,
+    "prettier.printWidth": 100,
+
+    "coc.preferences.formatOnSaveFiletypes": ["javascript"]
 }
