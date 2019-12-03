@@ -20,6 +20,7 @@ Plug 'tpope/vim-fugitive'
 "Other stuff
 Plug 'junegunn/goyo.vim'
 Plug 'janko/vim-test'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 call plug#end()
 
@@ -83,6 +84,11 @@ let g:NERDTreeIgnore = ['^node_modules$', '^.git']
 
 autocmd BufEnter * call SyncTree()
 
+"FZF
+let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+let $FZF_DEFAULT_OPTS=' --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4'
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
 "Remaps
 noremap Y y$
 nnoremap <C-Y> <C-R>
@@ -98,6 +104,7 @@ nmap <leader>tf :TestFile<CR>
 nmap <leader>ta :TestSuite<CR>
 
 map <leader>f :Goyo \| set linebreak<CR>
+map <leader>q :FZF .<CR>
 
 "Functions
 function! SyncTree()
@@ -109,4 +116,25 @@ endfunction
 
 function! IsNERDTreeOpen()
   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  let height = float2nr(10)
+  let width = float2nr(80)
+  let horizontal = float2nr((&columns - width) / 2)
+  let vertical = 1
+
+  let opts = {
+    \ 'relative': 'editor',
+    \ 'row': vertical,
+    \ 'col': horizontal,
+    \ 'width': width,
+    \ 'height': height,
+    \ 'style': 'minimal'
+  \ }
+
+  call nvim_open_win(buf, v:true, opts)
 endfunction
