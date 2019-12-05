@@ -59,7 +59,7 @@ set ignorecase
 set smartcase
 
 "vim-test
-let g:test#javascript#ava#file_pattern = '.*\.test\.ts'
+let g:test#javascript#ava#file_pattern = '.*\.test\.[tj]s'
 let test#strategy = 'neovim'
 
 "Other
