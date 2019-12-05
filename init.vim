@@ -16,6 +16,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'pangloss/vim-javascript'
 
 "Other stuff
 Plug 'junegunn/goyo.vim'
