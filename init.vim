@@ -74,7 +74,6 @@ let g:space_vim_dark_background = 233
 colorscheme space-vim-dark
 
 "NERDTree
-map <C-N> :NERDTreeToggle<CR>
 autocmd vimenter * NERDTree
 autocmd vimenter * wincmd p
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -101,9 +100,10 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 nmap <F2> <Plug>(coc-rename)
 nmap <silent> gd <Plug>(coc-definition)
-nmap <leader>tf :TestFile<CR>
-nmap <leader>ta :TestSuite<CR>
+nmap <leader>tf :TestFile --verbose --concurrency 2 --fail-fast<CR>
+nmap <leader>ta :TestSuite --verbose --concurrency 2 --fail-fast<CR>
 
+map <C-N> :NERDTreeToggle<CR>
 map <leader>f :Goyo \| set linebreak<CR>
 map <leader>q :FZF .<CR>
 
