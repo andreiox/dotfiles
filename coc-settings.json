@@ -1,11 +1,13 @@
 {
     "suggest.noselect": false,
 
-    "prettier.eslintIntegration": true,
-    "prettier.useTabs": true,
+    "prettier.useTabs": false,
+    "prettier.tabWidth": 4,
     "prettier.singleQuote": true,
     "prettier.semi": false,
     "prettier.printWidth": 100,
+    "prettier.trailingComma": "all",
+    "prettier.arrowParens": "avoid",
 
-    "coc.preferences.formatOnSaveFiletypes": ["javascript"]
+    "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript"]
 }
