@@ -110,6 +110,7 @@ nmap <leader>ta :TestSuite --verbose --concurrency 2 --fail-fast<CR>
 map <C-N> :NERDTreeToggle<CR>
 map <leader>f :Goyo \| set linebreak<CR>
 map <leader>q :FZF .<CR>
+map <leader>vs :vsplit<CR>
 
 "Functions
 function! SyncTree()
