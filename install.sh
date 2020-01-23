@@ -7,8 +7,5 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubuserc
 ln -s ~/git/dotfiles/init.vim ~/.config/nvim
 ln -s ~/git/dotfiles/coc-settings.json ~/.config/nvim
 
-# tmux
-ln -s ~/git/dotfiles/.tmux.conf ~/
-
 # vim-plug install plugs
 nvim +PlugInstall +UpdateRemotePlugins +qall
