@@ -74,9 +74,9 @@ let g:space_vim_dark_background = 233
 colorscheme space-vim-dark
 
 "NERDTree
-autocmd vimenter * NERDTree
-autocmd vimenter * wincmd p
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd vimenter * NERDTree
+" autocmd vimenter * wincmd p
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let NERDTreeShowHidden=1
 let g:NERDTreeGitStatusWithFlags = 1
