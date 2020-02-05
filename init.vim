@@ -82,7 +82,7 @@ let NERDTreeShowHidden=1
 let g:NERDTreeGitStatusWithFlags = 1
 let g:NERDTreeIgnore = ['^node_modules$', '^.git']
 
-autocmd BufEnter * call SyncTree()
+" autocmd BufEnter * call SyncTree()
 
 "NERDCommenter
 let g:NERDSpaceDelims = 1
