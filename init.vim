@@ -1,8 +1,8 @@
 call plug#begin('~/.config/nvim/bundle')
 
 "Theme
-Plug 'liuchengxu/space-vim-dark'
 Plug 'bling/vim-airline'
+Plug 'morhetz/gruvbox'
 
 "NERDTree
 Plug 'scrooloose/nerdtree'
@@ -70,8 +70,11 @@ set splitbelow splitright
 autocmd BufWritePre * %s/\s\+$//e
 
 "Theme
-let g:space_vim_dark_background = 233
-colorscheme space-vim-dark
+set termguicolors
+colorscheme gruvbox
+
+"Vim transparency
+hi Normal guibg=NONE ctermbg=NONE
 
 "NERDTree
 " autocmd vimenter * NERDTree
