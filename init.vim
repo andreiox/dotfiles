@@ -2,6 +2,7 @@ call plug#begin('~/.config/nvim/bundle')
 
 "Theme
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 
 "NERDTree
@@ -76,6 +77,10 @@ colorscheme gruvbox
 "Vim transparency
 hi Normal guibg=NONE ctermbg=NONE
 
+"Vim Airline
+let g:airline_theme='simple'
+let g:airline_powerline_fonts = 1
+
 "NERDTree
 " autocmd vimenter * NERDTree
 " autocmd vimenter * wincmd p
@@ -95,22 +100,6 @@ let g:NERDDefaultAlign = 'left'
 let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 let $FZF_DEFAULT_OPTS=' --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4'
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-
-" symbols section for unicode/airline symbols
-let g:airline_powerline_fonts = 1
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
 
 "Remaps
 noremap Y y$
