@@ -78,7 +78,7 @@ colorscheme gruvbox
 hi Normal guibg=NONE ctermbg=NONE
 
 "Vim Airline
-let g:airline_theme='simple'
+let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
 
 "NERDTree
