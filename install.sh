@@ -13,3 +13,7 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubuserc
 
 # vim-plug install plugs
 nvim +PlugInstall +UpdateRemotePlugins +qall
+
+# ============= POLYBAR
+
+ln -sf $HOME/git/dotfiles/polybar $HOME/.config
