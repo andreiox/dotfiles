@@ -26,3 +26,4 @@ ln -sf $HOME/git/dotfiles/polybar $HOME/.config
 ln -sf $HOME/git/dotfiles/zsh $HOME/.config
 ln -sf $HOME/git/dotfiles/zsh/.zprofile $HOME/.profile
 ln -sf $HOME/git/dotfiles/zsh/.zprofile $HOME/.bash_profile
+ln -sf $HOME/git/dotfiles/zsh/.zprofile $HOME/.zprofile
