@@ -20,9 +20,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'pangloss/vim-javascript'
 
 "Other stuff
-Plug 'junegunn/goyo.vim'
 Plug 'janko/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'mbbill/undotree'
 
 call plug#end()
 
@@ -81,11 +81,6 @@ hi Normal guibg=NONE ctermbg=NONE
 let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
 
-"NERDTree
-" autocmd vimenter * NERDTree
-" autocmd vimenter * wincmd p
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 let NERDTreeShowHidden=1
 let g:NERDTreeGitStatusWithFlags = 1
 let g:NERDTreeIgnore = ['^node_modules$', '^.git']
@@ -111,14 +106,14 @@ nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
 inoremap <silent><expr> <c-space> coc#refresh()
 
 nmap <F2> <Plug>(coc-rename)
-nmap <silent> gd <Plug>(coc-definition)
+nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>tf :TestFile --verbose --concurrency 2 --fail-fast<CR>
-nmap <leader>ta :TestSuite --verbose --concurrency 2 --fail-fast<CR>
+nmap <leader>ta :TestSuite --verbose --concurrency 4 --fail-fast<CR>
 
 map <C-N> :NERDTreeToggle<CR>
-map <leader>f :Goyo \| set linebreak<CR>
 map <leader>q :FZF .<CR>
 map <leader>vs :vsplit<CR>
+map <leader>u :UndotreeToggle<CR>
 
 "Functions
 function! SyncTree()
