@@ -59,10 +59,6 @@ set nohlsearch
 set ignorecase
 set smartcase
 
-"vim-test
-let g:test#javascript#ava#file_pattern = '.*\.test\.[tj]s'
-let test#strategy = 'neovim'
-
 "Other
 set updatetime=300
 set signcolumn=yes
@@ -77,15 +73,18 @@ colorscheme gruvbox
 "Vim transparency
 hi Normal guibg=NONE ctermbg=NONE
 
+"vim-test
+let g:test#javascript#ava#file_pattern = '.*\.test\.[tj]s'
+let test#strategy = 'neovim'
+
 "Vim Airline
 let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
 
+"NERDTree
 let NERDTreeShowHidden=1
 let g:NERDTreeGitStatusWithFlags = 1
 let g:NERDTreeIgnore = ['^node_modules$', '^.git']
-
-" autocmd BufEnter * call SyncTree()
 
 "NERDCommenter
 let g:NERDSpaceDelims = 1
@@ -116,17 +115,6 @@ map <leader>vs :vsplit<CR>
 map <leader>u :UndotreeToggle<CR>
 
 "Functions
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
-
-function! IsNERDTreeOpen()
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-
 function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
   call setbufvar(buf, '&signcolumn', 'no')
