@@ -21,6 +21,7 @@ Plug 'pangloss/vim-javascript'
 
 "Other stuff
 Plug 'janko/vim-test'
+Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'mbbill/undotree'
 
@@ -95,6 +96,10 @@ let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/
 let $FZF_DEFAULT_OPTS=' --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4'
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
+if executable('rg')
+    let g:rg_derive_root='true'
+endif
+
 "Remaps
 noremap Y y$
 nnoremap <C-Y> <C-R>
@@ -113,6 +118,7 @@ map <C-N> :NERDTreeToggle<CR>
 map <leader>q :FZF .<CR>
 map <leader>vs :vsplit<CR>
 map <leader>u :UndotreeToggle<CR>
+nnoremap <leader>ps :Rg<SPACE>
 
 "Functions
 function! FloatingFZF()
