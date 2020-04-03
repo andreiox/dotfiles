@@ -110,14 +110,14 @@ nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
 inoremap <silent><expr> <c-space> coc#refresh()
 
 nmap <F2> <Plug>(coc-rename)
-nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>tf :TestFile --verbose --concurrency 2 --fail-fast<CR>
-nmap <leader>ta :TestSuite --verbose --concurrency 4 --fail-fast<CR>
+nmap <silent> gd <Plug>(coc-definition)
+nnoremap <leader>tf :TestFile --verbose --concurrency 2 --fail-fast<CR>
+nnoremap <leader>ta :TestSuite --verbose --concurrency 4 --fail-fast<CR>
 
-map <C-N> :NERDTreeToggle<CR>
-map <leader>q :FZF .<CR>
-map <leader>vs :vsplit<CR>
-map <leader>u :UndotreeToggle<CR>
+nnoremap <C-N> :NERDTreeToggle<CR>
+nnoremap <leader>q :FZF .<CR>
+nnoremap <leader>vs :vsplit<CR>
+nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>ps :Rg<SPACE>
 
 "Functions
