@@ -9,5 +9,5 @@
     "prettier.trailingComma": "all",
     "prettier.arrowParens": "avoid",
 
-    "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript"]
+    "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "markdown"]
 }

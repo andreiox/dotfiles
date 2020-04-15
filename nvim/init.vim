@@ -18,6 +18,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-surround'
 
 "Other stuff
 Plug 'janko/vim-test'
@@ -38,7 +39,6 @@ set clipboard+=unnamedplus
 "Highlighting
 set inccommand=split
 set number
-set relativenumber
 set showcmd
 set showmatch
 
@@ -118,7 +118,7 @@ nnoremap <C-N> :NERDTreeToggle<CR>
 nnoremap <leader>q :FZF .<CR>
 nnoremap <leader>vs :vsplit<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
-nnoremap <leader>ps :Rg<SPACE>
+nnoremap <leader>ps :Rg<SPACE>""<left>
 
 "Functions
 function! FloatingFZF()
