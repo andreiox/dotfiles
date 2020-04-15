@@ -5,13 +5,6 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 
-"NERDTree
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'airblade/vim-gitgutter'
-
 "Code stuff
 Plug 'scrooloose/nerdcommenter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -19,6 +12,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
 
 "Other stuff
 Plug 'janko/vim-test'
@@ -82,11 +76,6 @@ let test#strategy = 'neovim'
 let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
 
-"NERDTree
-let NERDTreeShowHidden=1
-let g:NERDTreeGitStatusWithFlags = 1
-let g:NERDTreeIgnore = ['^node_modules$', '^.git']
-
 "NERDCommenter
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
@@ -114,7 +103,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nnoremap <leader>tf :TestFile --verbose --concurrency 2 --fail-fast<CR>
 nnoremap <leader>ta :TestSuite --verbose --concurrency 4 --fail-fast<CR>
 
-nnoremap <C-N> :NERDTreeToggle<CR>
 nnoremap <leader>q :FZF .<CR>
 nnoremap <leader>vs :vsplit<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
