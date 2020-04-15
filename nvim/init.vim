@@ -1,28 +1,4 @@
-call plug#begin('~/.config/nvim/bundle')
-
-"Theme
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'morhetz/gruvbox'
-
-"Code stuff
-Plug 'scrooloose/nerdcommenter'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'pangloss/vim-javascript'
-Plug 'tpope/vim-surround'
-Plug 'airblade/vim-gitgutter'
-
-"Other stuff
-Plug 'janko/vim-test'
-Plug 'jremmen/vim-ripgrep'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'mbbill/undotree'
-
-call plug#end()
-
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-tslint', 'coc-pairs', 'coc-python', 'coc-prettier']
+"Things that doesnt depend on plugins
 
 "Leader
 let mapleader="\<space>"
@@ -58,19 +34,57 @@ set smartcase
 set updatetime=300
 set signcolumn=yes
 set splitbelow splitright
+set scrolloff=3
 
+"Remove trailing spaces
 autocmd BufWritePre * %s/\s\+$//e
-
-"Theme
-set termguicolors
-colorscheme gruvbox
 
 "Vim transparency
 hi Normal guibg=NONE ctermbg=NONE
 
-"vim-test
-let g:test#javascript#ava#file_pattern = '.*\.test\.[tj]s'
-let test#strategy = 'neovim'
+"Remaps
+noremap Y y$
+nnoremap <C-Y> <C-R>
+nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
+nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
+nnoremap <leader>vs :vsplit<CR>
+nnoremap <leader>sp :split<CR>
+
+
+"Just plugin things from here on out
+
+call plug#begin('~/.config/nvim/bundle')
+
+    "Theme
+    Plug 'morhetz/gruvbox'
+    Plug 'bling/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+
+    "Code stuff
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'HerringtonDarkholme/yats.vim'
+    Plug 'pangloss/vim-javascript'
+    Plug 'janko/vim-test'
+
+    "Git
+    Plug 'airblade/vim-gitgutter'
+    Plug 'tpope/vim-fugitive'
+
+    "Utils
+    Plug 'tpope/vim-surround'
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'jremmen/vim-ripgrep'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'mbbill/undotree'
+
+call plug#end()
+
+"Coc extensions
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-tslint', 'coc-pairs', 'coc-python', 'coc-prettier']
+
+"Theme
+set termguicolors
+colorscheme gruvbox
 
 "Vim Airline
 let g:airline_theme='dark'
@@ -79,6 +93,10 @@ let g:airline_powerline_fonts = 1
 "NERDCommenter
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
+
+"vim-test
+let g:test#javascript#ava#file_pattern = '.*\.test\.[tj]s'
+let test#strategy = 'neovim'
 
 "FZF
 let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
@@ -90,21 +108,14 @@ if executable('rg')
 endif
 
 "Remaps
-noremap Y y$
-nnoremap <C-Y> <C-R>
-
-nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
-nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
-
 inoremap <silent><expr> <c-space> coc#refresh()
 
 nmap <F2> <Plug>(coc-rename)
 nmap <silent> gd <Plug>(coc-definition)
-nnoremap <leader>tf :TestFile --verbose --concurrency 2 --fail-fast<CR>
+nnoremap <leader>tf :TestFile --verbose<CR>
 nnoremap <leader>ta :TestSuite --verbose --concurrency 4 --fail-fast<CR>
 
 nnoremap <leader>q :FZF .<CR>
-nnoremap <leader>vs :vsplit<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>ps :Rg<SPACE>""<left>
 
