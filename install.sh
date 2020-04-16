@@ -37,3 +37,9 @@ ln -sf $HOME/git/dotfiles/.xinitrc $HOME/.xinitrc
 # ============= aliasrc
 
 ln -sf $HOME/git/dotfiles/aliasrc $HOME/.config/aliasrc
+
+
+# ============= bspwm
+
+ln -sf $HOME/git/dotfiles/bspwm $HOME/.config
+ln -sf $HOME/git/dotfiles/sxhkd $HOME/.config
