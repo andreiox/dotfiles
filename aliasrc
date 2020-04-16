@@ -1,0 +1,5 @@
+alias ls="ls -Ah --color=auto"
+alias vim="nvim"
+alias p="sudo pacman"
+alias ss="sudo systemctl"
+alias dc="docker container"

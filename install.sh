@@ -32,3 +32,8 @@ ln -sf $HOME/git/dotfiles/zsh/.zprofile $HOME/.zprofile
 # ============= xinitrc
 
 ln -sf $HOME/git/dotfiles/.xinitrc $HOME/.xinitrc
+
+
+# ============= aliasrc
+
+ln -sf $HOME/git/dotfiles/aliasrc $HOME/.config/aliasrc
