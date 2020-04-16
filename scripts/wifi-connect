@@ -1,0 +1,3 @@
+#!/bin/bash
+
+nmcli -ask d wifi connect `wifi-scan | awk '{print $2}' | dmenu` password $1

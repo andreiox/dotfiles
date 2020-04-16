@@ -43,3 +43,8 @@ ln -sf $HOME/git/dotfiles/aliasrc $HOME/.config/aliasrc
 
 ln -sf $HOME/git/dotfiles/bspwm $HOME/.config
 ln -sf $HOME/git/dotfiles/sxhkd $HOME/.config
+
+
+# ============= scripts
+
+ln -sf $HOME/git/dotfiles/scripts $HOME/.scripts
