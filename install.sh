@@ -27,3 +27,8 @@ ln -sf $HOME/git/dotfiles/zsh $HOME/.config
 ln -sf $HOME/git/dotfiles/zsh/.zprofile $HOME/.profile
 ln -sf $HOME/git/dotfiles/zsh/.zprofile $HOME/.bash_profile
 ln -sf $HOME/git/dotfiles/zsh/.zprofile $HOME/.zprofile
+
+
+# ============= xinitrc
+
+ln -sf $HOME/git/dotfiles/.xinitrc $HOME/.xinitrc
