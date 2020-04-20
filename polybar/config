@@ -223,9 +223,9 @@ ramp-volume-2 =" "
 ramp-volume-3 =" "
 label-volume-foreground = ${colors.foreground}
 
-format-muted-prefix = " "
+format-muted-prefix = "  "
 format-muted-foreground = ${colors.foreground}
-label-muted = muted
+label-muted = Muted
 label-muted-foreground = ${colors.foreground}
 
 
