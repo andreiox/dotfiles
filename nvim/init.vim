@@ -96,7 +96,11 @@ let g:NERDDefaultAlign = 'left'
 
 "vim-test
 let g:test#javascript#ava#file_pattern = '.*\.test\.[tj]s'
-let test#strategy = 'neovim'
+
+if has('nvim')
+    let test#strategy = 'neovim'
+    tmap <C-o> <C-\><C-n>
+endif
 
 "FZF
 let $FZF_DEFAULT_COMMAND =  "find . -path ./.git -prune -o -path ./node_modules -prune -o -path ./dist -prune -o -path ./.vscode -prune -o -path ./.ebextensions -prune -o -print"
