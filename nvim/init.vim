@@ -117,6 +117,8 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 nmap <F2> <Plug>(coc-rename)
 nmap <silent> gd <Plug>(coc-definition)
+nnoremap <leader>gr <Plug>(coc-references)
+nnoremap <leader>dia :<C-u>CocList diagnostics<CR>
 nnoremap <leader>tf :TestFile --verbose<CR>
 nnoremap <leader>ta :TestSuite --verbose --concurrency 4 --fail-fast<CR>
 
