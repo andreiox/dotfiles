@@ -89,7 +89,7 @@ colorscheme gruvbox
 
 "Vim Airline
 let g:airline_theme='dark'
-" let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 
 "NERDCommenter
 let g:NERDSpaceDelims = 1
