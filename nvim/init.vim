@@ -76,6 +76,7 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'jremmen/vim-ripgrep'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'mbbill/undotree'
+    Plug 'caenrique/nvim-maximize-window-toggle'
 
 call plug#end()
 
@@ -88,7 +89,7 @@ colorscheme gruvbox
 
 "Vim Airline
 let g:airline_theme='dark'
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 
 "NERDCommenter
 let g:NERDSpaceDelims = 1
@@ -122,6 +123,7 @@ nnoremap <leader>ta :TestSuite --verbose --concurrency 4 --fail-fast<CR>
 nnoremap <leader>q :FZF .<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>ps :Rg<SPACE>""<left>
+nnoremap <leader>mf :ToggleOnly<CR>
 
 "Functions
 function! FloatingFZF()
