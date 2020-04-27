@@ -61,7 +61,7 @@ background = ${colors.background}
 module-margin-left = 1
 module-margin-right = 2
 
-padding-left = 0
+padding-left = 2
 padding-right = 2
 
 font-0 = UbuntuMono Nerd Font:size=11;1
@@ -176,6 +176,8 @@ label-warn-foreground = ${colors.alert}
 
 [module/bspwm]
 type = internal/bspwm
+
+format = "%{F#1793D1}%{F-}  <label-state>"
 
 label-focused = %index%
 label-focused-background = ${colors.background}
