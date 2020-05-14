@@ -76,7 +76,6 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'jremmen/vim-ripgrep'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'mbbill/undotree'
-    Plug 'caenrique/nvim-maximize-window-toggle'
 
 call plug#end()
 
@@ -104,7 +103,7 @@ if has('nvim')
 endif
 
 "FZF
-let $FZF_DEFAULT_COMMAND =  "find . -path ./.git -prune -o -path ./node_modules -prune -o -path ./dist -prune -o -path ./.vscode -prune -o -path ./.ebextensions -prune -o -print"
+let $FZF_DEFAULT_COMMAND =  "find . -path ./.git -prune -o -path ./node_modules -prune -o -path ./dist -prune -o -path ./.vscode -prune -o -path ./.ebextensions -prune -o -path ./.nyc_output -prune -o -print"
 let $FZF_DEFAULT_OPTS=' --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4'
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
@@ -117,7 +116,10 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 nmap <F2> <Plug>(coc-rename)
 nmap <silent> gd <Plug>(coc-definition)
-nnoremap <leader>gr <Plug>(coc-references)
+nmap <silent> gr <Plug>(coc-references)
+nmap <leader>gs :G<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gp :Gpush<CR>
 nnoremap <leader>dia :<C-u>CocList diagnostics<CR>
 nnoremap <leader>tf :TestFile --verbose<CR>
 nnoremap <leader>ta :TestSuite --verbose --concurrency 4 --fail-fast<CR>
@@ -125,7 +127,6 @@ nnoremap <leader>ta :TestSuite --verbose --concurrency 4 --fail-fast<CR>
 nnoremap <leader>q :FZF .<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>ps :Rg<SPACE>""<left>
-nnoremap <leader>mf :ToggleOnly<CR>
 
 "Functions
 function! FloatingFZF()
