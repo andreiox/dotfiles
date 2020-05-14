@@ -76,6 +76,7 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'jremmen/vim-ripgrep'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'mbbill/undotree'
+    Plug 'unblevable/quick-scope'
 
 call plug#end()
 
@@ -101,6 +102,13 @@ if has('nvim')
     let test#strategy = 'neovim'
     tmap <C-o> <C-\><C-n>
 endif
+
+"quickscope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+let g:qs_max_chars=150
+
+highlight QuickScopePrimary guifg='#00C7DF' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#eF5F70' gui=underline ctermfg=81 cterm=underline
 
 "FZF
 let $FZF_DEFAULT_COMMAND =  "find . -path ./.git -prune -o -path ./node_modules -prune -o -path ./dist -prune -o -path ./.vscode -prune -o -path ./.ebextensions -prune -o -path ./.nyc_output -prune -o -print"
