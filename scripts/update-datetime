@@ -1,0 +1,9 @@
+#!/bin/sh
+
+response=$(curl "http://worldtimeapi.org/api/timezone/America/Sao_Paulo" |
+    sed -e 's/[{}]/''/g' |
+    awk -v k="text" '{n=split($0,a,","); print a[12]}')
+
+unixtime=${response:11}
+
+sudo date +%s -s @${unixtime}
