@@ -77,6 +77,7 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'mbbill/undotree'
     Plug 'unblevable/quick-scope'
+    Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 call plug#end()
 
@@ -103,12 +104,17 @@ if has('nvim')
     tmap <C-o> <C-\><C-n>
 endif
 
-"quickscope
+"Quickscope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 let g:qs_max_chars=150
 
 highlight QuickScopePrimary guifg='#00C7DF' gui=underline ctermfg=155 cterm=underline
 highlight QuickScopeSecondary guifg='#eF5F70' gui=underline ctermfg=81 cterm=underline
+
+"vim-instant-markdown
+let g:instant_markdown_port = 8888
+let g:instant_markdown_autostart = 0
+let g:instant_markdown_browser = "chromium"
 
 "FZF
 let $FZF_DEFAULT_COMMAND =  "find . -path ./.git -prune -o -path ./node_modules -prune -o -path ./dist -prune -o -path ./.vscode -prune -o -path ./.ebextensions -prune -o -path ./.nyc_output -prune -o -print"
@@ -125,16 +131,21 @@ inoremap <silent><expr> <c-space> coc#refresh()
 nmap <F2> <Plug>(coc-rename)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
+nmap <leader>dia :<C-u>CocList diagnostics<CR>
+
 nmap <leader>gs :G<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gp :Gpush<CR>
-nnoremap <leader>dia :<C-u>CocList diagnostics<CR>
-nnoremap <leader>tf :TestFile --verbose<CR>
-nnoremap <leader>ta :TestSuite --verbose --concurrency 4 --fail-fast<CR>
 
-nnoremap <leader>q :FZF .<CR>
-nnoremap <leader>u :UndotreeToggle<CR>
-nnoremap <leader>ps :Rg<SPACE>""<left>
+nmap <leader>mp :InstantMarkdownPreview<CR>
+nmap <leader>ms :InstantMarkdownStop<CR>
+
+nmap <leader>tf :TestFile --verbose<CR>
+nmap <leader>ta :TestSuite --verbose --concurrency 4 --fail-fast<CR>
+
+nmap <leader>q :FZF .<CR>
+nmap <leader>ps :Rg<SPACE>""<left>
+nmap <leader>u :UndotreeToggle<CR>
 
 "Functions
 function! FloatingFZF()
