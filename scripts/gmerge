@@ -1,0 +1,32 @@
+#!/bin/bash
+
+function check_receiving_branch_exists () {
+  if [ -z "$1" ]; then
+    echo "No receiving branch informed"
+    exit 1
+  fi
+
+  local branch=${1}
+  local existed_in_local=$(git branch --list ${branch})
+
+  if [[ -z ${existed_in_local} ]]; then
+    echo "Receiving branch does not exist"
+    exit 1
+  fi
+}
+
+function extract_current_branch () {
+  STATUS=`git status`
+
+  IFS=' '
+  read -r -a array <<< "$STATUS"
+
+  branch=${array[2]}
+  echo $branch
+}
+
+check_receiving_branch_exists $1
+current_branch=$(extract_current_branch)
+
+git checkout $1
+git merge $current_branch --no-ff --no-edit
