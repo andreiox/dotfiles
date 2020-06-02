@@ -19,7 +19,7 @@
 enable-ipc = true
 
 [colors]
-background = #bb0d0d0d
+background = #660d0d0d
 ;background = #00000000
 background-alt = #444
 foreground = #ffffff

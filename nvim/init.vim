@@ -56,7 +56,7 @@ nnoremap <leader>sp :split<CR>
 call plug#begin('~/.config/nvim/bundle')
 
     "Theme
-    Plug 'morhetz/gruvbox'
+    Plug 'gruvbox-community/gruvbox'
     Plug 'bling/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
