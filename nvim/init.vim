@@ -85,6 +85,9 @@ call plug#end()
 let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-tslint', 'coc-pairs', 'coc-python', 'coc-prettier']
 
 "Theme
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_invert_selection='0'
+
 set termguicolors
 colorscheme gruvbox
 
