@@ -3,7 +3,7 @@
 export PATH="$PATH:$HOME/.scripts:$HOME/.local/bin"
 export EDITOR="vim"
 export TERMINAL="st"
-export BROWSER="firefox"
+export BROWSER="chromium"
 export FS="thunar"
 export ZDOTDIR="$HOME/.config/zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
