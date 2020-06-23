@@ -139,6 +139,8 @@ nmap <leader>dia :<C-u>CocList diagnostics<CR>
 nmap <leader>gs :G<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gp :Gpush<CR>
+nmap <leader>gh :diffget //2<CR>
+nmap <leader>gl :diffget //3<CR>
 
 nmap <leader>mp :InstantMarkdownPreview<CR>
 nmap <leader>ms :InstantMarkdownStop<CR>
