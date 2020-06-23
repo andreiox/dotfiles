@@ -1,0 +1,6 @@
+#!/bin/bash
+
+wallpapers=(~/Images/wallpapers/*)
+random_number=$((1 + RANDOM % ${#wallpapers[@]}))
+
+setbg ${wallpapers[$random_number]}
