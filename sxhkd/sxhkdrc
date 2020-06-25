@@ -26,6 +26,9 @@ super + f
 super + g
     gitkraken
 
+super + i
+    insomnia
+
 alt + shift + x
     betterlockscreen -l blur
 
