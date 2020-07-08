@@ -9,5 +9,7 @@
     "prettier.trailingComma": "all",
     "prettier.arrowParens": "avoid",
 
-    "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "markdown", "json"]
+    "xml.java.home": "/usr/lib/jvm/java-8-jdk",
+
+    "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "markdown", "json", "xml"]
 }

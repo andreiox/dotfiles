@@ -82,7 +82,7 @@ call plug#begin('~/.config/nvim/bundle')
 call plug#end()
 
 "Coc extensions
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-tslint', 'coc-pairs', 'coc-python', 'coc-prettier']
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-tslint', 'coc-pairs', 'coc-python', 'coc-prettier', 'coc-xml']
 
 "Theme
 let g:gruvbox_contrast_dark='hard'
@@ -117,7 +117,7 @@ highlight QuickScopeSecondary guifg='#eF5F70' gui=underline ctermfg=81 cterm=und
 "vim-instant-markdown
 let g:instant_markdown_port = 8888
 let g:instant_markdown_autostart = 0
-let g:instant_markdown_browser = "chromium"
+let g:instant_markdown_browser = "chromium --new-window"
 
 "FZF
 let $FZF_DEFAULT_COMMAND =  "find . -path ./.git -prune -o -path ./node_modules -prune -o -path ./dist -prune -o -path ./.vscode -prune -o -path ./.ebextensions -prune -o -path ./.nyc_output -prune -o -print"
