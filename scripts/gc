@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd
+cd git
+
+git clone $1
