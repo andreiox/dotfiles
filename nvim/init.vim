@@ -19,7 +19,7 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set wrap
+set nowrap
 set ffs=unix,dos,mac
 set encoding=utf8
 
