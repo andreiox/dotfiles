@@ -82,7 +82,15 @@ call plug#begin('~/.config/nvim/bundle')
 call plug#end()
 
 "Coc extensions
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-tslint', 'coc-pairs', 'coc-python', 'coc-prettier', 'coc-xml']
+let g:coc_global_extensions = [
+    \ 'coc-json',
+    \ 'coc-tsserver',
+    \ 'coc-eslint',
+    \ 'coc-prettier',
+    \ 'coc-pairs',
+    \ 'coc-python',
+    \ 'coc-xml'
+\ ]
 
 "Theme
 let g:gruvbox_contrast_dark='hard'
