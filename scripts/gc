@@ -1,6 +1,12 @@
 #!/bin/bash
 
+split_url=($(echo "$1" | tr '/' '\n'))
+LEN=${#split_url[@]}
+folder=${split_url[LEN]}
+
 cd
 cd git
 
 git clone $1
+
+cd ${folder}
