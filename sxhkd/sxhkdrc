@@ -29,14 +29,20 @@ super + g
 super + i
     insomnia
 
+super + End
+    gscreenshot-cli -c -s
+
+super + p
+    bspc monitor -f next
+
+super + shift + p
+    bspc node --to-monitor any.!focused
+
 alt + shift + x
     betterlockscreen -l blur
 
 alt + shift + s
     prompt "Shutdown now?" "shutdown now"
-
-super + End
-    gscreenshot-cli -c -s
 
 #
 # bspwm hotkeys
