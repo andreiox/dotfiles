@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if (( $(xrandr --query | grep " connected" | wc -l) > 1)); then
+  mons -e left
+  random-wallpaper
+  $HOME/.config/polybar/launch.sh
+fi
+
+$HOME/.scripts/kblayout us
