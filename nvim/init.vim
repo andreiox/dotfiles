@@ -154,7 +154,7 @@ nmap <leader>mp :InstantMarkdownPreview<CR>
 nmap <leader>ms :InstantMarkdownStop<CR>
 
 nmap <leader>tf :TestFile --verbose<CR>
-nmap <leader>ta :TestSuite --verbose --concurrency 4 --fail-fast<CR>
+nmap <leader>ta :TestSuite --verbose<CR>
 
 nmap <leader>q :FZF .<CR>
 nmap <leader>ps :Rg<SPACE>""<left>
