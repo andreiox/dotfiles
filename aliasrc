@@ -8,3 +8,4 @@ alias gp="git push"
 alias gs="git status"
 alias gcm="git commit"
 alias gco="git checkout"
+alias ct='cat ~/git/dotfiles/textfiles/commit-types'
