@@ -17,5 +17,13 @@
         "xml"
     ],
 
-    "xml.java.home": "/usr/lib/jvm/java-8-jdk"
+    "xml.java.home": "/usr/lib/jvm/java-8-jdk",
+
+    "explorer.width": 40,
+    "explorer.icon.enableNerdfont": true,
+    "explorer.previewAction.onHover": false,
+    "explorer.keyMappings": {
+        "<cr>": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
+        "v": "open:vsplit"
+    }
 }

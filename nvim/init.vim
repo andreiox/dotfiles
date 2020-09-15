@@ -1,5 +1,7 @@
 "Things that doesnt depend on plugins
 
+set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline\ Nerd\ Font\ Complete:h12
+
 "Leader
 let mapleader="\<space>"
 
@@ -89,7 +91,8 @@ let g:coc_global_extensions = [
     \ 'coc-prettier',
     \ 'coc-pairs',
     \ 'coc-python',
-    \ 'coc-xml'
+    \ 'coc-xml',
+    \ 'coc-explorer'
 \ ]
 
 "Theme
@@ -136,6 +139,12 @@ if executable('rg')
     let g:rg_derive_root='true'
 endif
 
+let g:coc_explorer_global_presets = {
+\   'simplify': {
+\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+\   }
+\ }
+
 "Remaps
 inoremap <silent><expr> <c-space> coc#refresh()
 
@@ -159,6 +168,9 @@ nmap <leader>ta :TestSuite --verbose<CR>
 nmap <leader>q :FZF .<CR>
 nmap <leader>ps :Rg<SPACE>""<left>
 nmap <leader>u :UndotreeToggle<CR>
+
+nmap <space>f :CocCommand explorer --preset simplify<CR>
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 
 "Functions
 function! FloatingFZF()
