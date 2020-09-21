@@ -2,7 +2,7 @@
 
 export PATH="$PATH:$HOME/.scripts:$HOME/.local/bin"
 export EDITOR="vim"
-export TERMINAL="st"
+export TERMINAL="alacritty"
 export BROWSER="chromium"
 export FS="thunar"
 export ZDOTDIR="$HOME/.config/zsh"

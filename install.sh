@@ -48,3 +48,7 @@ ln -sf $HOME/git/dotfiles/sxhkd $HOME/.config
 # ============= scripts
 
 ln -sf $HOME/git/dotfiles/scripts $HOME/.scripts
+
+# ============= alacritty
+
+ln -sf $HOME/git/dotfiles/alacritty $HOME/.config
