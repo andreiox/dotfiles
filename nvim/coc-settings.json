@@ -20,6 +20,7 @@
     "xml.java.home": "/usr/lib/jvm/java-8-jdk",
 
     "explorer.width": 40,
+    "explorer.file.showHiddenFiles": true,
     "explorer.icon.enableNerdfont": true,
     "explorer.previewAction.onHover": false,
     "explorer.keyMappings": {
