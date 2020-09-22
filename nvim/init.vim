@@ -11,6 +11,7 @@ set clipboard+=unnamedplus
 "Highlighting
 set inccommand=split
 set number
+set relativenumber
 set showcmd
 set showmatch
 
