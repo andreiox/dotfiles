@@ -12,7 +12,7 @@ super + Return
 
 # program launcher
 super + @q
-    dmenu_run -c -l 15 -h 24
+    dmenu_run
 
 # launch browser
 super + b
