@@ -13,3 +13,4 @@ refactor: code change that does not fix a bug or add a feature, eg. renaming a v
 test: adding missing tests, refactoring tests; no production code change
 ci: change to the CI configuration files and scripts
 revert: reverts a previous commit
+chore: updating grunt tasks etc; no production code change
