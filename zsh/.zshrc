@@ -8,6 +8,13 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 
+export HISTSIZE=10000
+export SAVEHIST=10000
+export HISTFILE=~/.zhistory
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt EXTENDED_HISTORY
+
 # Include hidden files in autocomplete:
 _comp_options+=(globdots)
 
