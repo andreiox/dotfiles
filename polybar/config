@@ -15,9 +15,6 @@
 ;   The README contains a lot of information
 ;
 ;==========================================================
-
-enable-ipc = true
-
 [colors]
 background = #660d0d0d
 ;background = #00000000
@@ -26,6 +23,8 @@ foreground = #ffffff
 
 ;foreground = #dfdfdf
 foreground-alt = #555
+
+enable-ipc = true
 
 color0 = #000000
 color1 = #ab4642
