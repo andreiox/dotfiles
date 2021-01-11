@@ -150,6 +150,7 @@ let g:coc_explorer_global_presets = {
 inoremap <silent><expr> <c-space> coc#refresh()
 
 nmap <F2> <Plug>(coc-rename)
+nmap <silent> k :call CocAction('doHover')<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>dia :<C-u>CocList diagnostics<CR>
