@@ -34,7 +34,7 @@ set ignorecase
 set smartcase
 
 "Other
-set updatetime=300
+set updatetime=100
 set signcolumn=yes
 set splitbelow splitright
 set scrolloff=3
@@ -70,7 +70,7 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'janko/vim-test'
 
     "Git
-    Plug 'airblade/vim-gitgutter'
+    Plug 'mhinz/vim-signify'
     Plug 'tpope/vim-fugitive'
 
     "Utils
@@ -160,6 +160,9 @@ nmap <leader>gc :Gcommit<CR>
 nmap <leader>gp :Gpush<CR>
 nmap <leader>gh :diffget //2<CR>
 nmap <leader>gl :diffget //3<CR>
+
+nmap <leader>hd :SignifyHunkDiff<CR>
+nmap <leader>hu :SignifyHunkUndo<CR>
 
 nmap <leader>mp :InstantMarkdownPreview<CR>
 nmap <leader>ms :InstantMarkdownStop<CR>
