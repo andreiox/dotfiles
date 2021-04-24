@@ -1,13 +1,14 @@
 #!/bin/sh
 
-# create .config folder (is this necessary?)
-mkdir $HOME/.config
-
-
 # ============= NEOVIM
 
-mkdir $HOME/.config/nvim
-ln -sf $HOME/git/dotfiles/nvim/* $HOME/.config/nvim
+mkdir -p $HOME/.config/nvim
+mkdir -p $HOME/.config/nvim/plugin
+
+for f in `find . -regex ".*\.vim$\|.*\.lua$"`; do
+    rm -rf ~/.config/$f
+    ln -s ~/git/dotfiles/$f ~/.config/$f
+done
 
 # vim-plug
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -47,8 +48,6 @@ ln -sf $HOME/git/dotfiles/sxhkd $HOME/.config
 
 # ============= scripts
 
-ln -sf $HOME/git/dotfiles/scripts $HOME/.scripts
+rm -rf $HOME/.scripts
 
-# ============= alacritty
-
-ln -sf $HOME/git/dotfiles/alacritty $HOME/.config
+ln -s $HOME/git/dotfiles/scripts $HOME/.scripts
