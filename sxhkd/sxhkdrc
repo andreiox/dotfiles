@@ -29,6 +29,9 @@ super + g
 super + i
     insomnia
 
+super + d
+    _JAVA_AWT_WM_NONREPARENTING=1 DATAGRIP_JDK=/usr/lib/jvm/java-11-openjdk datagrip
+
 super + End
     gscreenshot-cli -c -s
 
