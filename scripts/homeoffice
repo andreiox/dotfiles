@@ -1,9 +1,12 @@
 #!/bin/bash
 
 if (( $(xrandr --query | grep " connected" | wc -l) > 1)); then
-  mons -e left
+  xrandr --output HDMI-0 --primary
+  xrandr --output DVI-D-0 --mode 1440x900 --left-of HDMI-0
+
+  sleep 4
   random-wallpaper
-  $HOME/.config/polybar/launch.sh
 fi
 
+update-datetime
 $HOME/.scripts/kblayout us
