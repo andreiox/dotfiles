@@ -8,6 +8,7 @@ call plug#begin('~/.config/nvim/bundle')
     "Code stuff
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'janko/vim-test'
+    Plug 'mhartington/formatter.nvim'
 
     "Git
     Plug 'mhinz/vim-signify'
