@@ -11,7 +11,7 @@
 
     "eslint.quiet": true,
 
-    "coc.preferences.formatOnSaveFiletypes": ["markdown", "json", "xml"],
+    "coc.preferences.formatOnSaveFiletypes": ["markdown", "xml"],
 
     "xml.java.home": "/usr/lib/jvm/java-15-openjdk",
 
