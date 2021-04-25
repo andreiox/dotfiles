@@ -1,11 +1,8 @@
 let g:coc_global_extensions = [
-    \ 'coc-json',
     \ 'coc-tsserver',
     \ 'coc-eslint',
-    \ 'coc-prettier',
     \ 'coc-pairs',
     \ 'coc-python',
-    \ 'coc-xml',
     \ 'coc-explorer'
 \ ]
 
