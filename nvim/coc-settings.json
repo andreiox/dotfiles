@@ -1,6 +1,5 @@
 {
     "suggest.noselect": false,
-
     "prettier.useTabs": false,
     "prettier.tabWidth": 4,
     "prettier.singleQuote": true,
@@ -8,19 +7,23 @@
     "prettier.printWidth": 85,
     "prettier.trailingComma": "all",
     "prettier.arrowParens": "avoid",
-
     "eslint.quiet": true,
-
-    "coc.preferences.formatOnSaveFiletypes": ["markdown"],
-
+    "coc.preferences.formatOnSaveFiletypes": [],
     "xml.java.home": "/usr/lib/jvm/java-15-openjdk",
-
     "explorer.width": 40,
     "explorer.file.showHiddenFiles": true,
     "explorer.icon.enableNerdfont": true,
     "explorer.previewAction.onHover": false,
     "explorer.keyMappings.global": {
-        "<cr>": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
+        "<cr>": [
+            "expandable?",
+            [
+                "expanded?",
+                "collapse",
+                "expand"
+            ],
+            "open"
+        ],
         "v": "open:vsplit"
     }
 }

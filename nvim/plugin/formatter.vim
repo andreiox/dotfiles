@@ -2,7 +2,7 @@
 autocmd BufWritePre * %s/\s\+$//e
 
 "Format on save
-autocmd BufWritePost *.ts,*.js,*.json,*.xml FormatWrite
+autocmd BufWritePost *.ts,*.js,*.json,*.xml,*.md FormatWrite
 
 lua << EOF
 require('formatter').setup({
@@ -40,6 +40,15 @@ require('formatter').setup({
           return {
             exe = "xmllint",
             args = {"--format", "-"},
+            stdin = true
+          }
+        end
+    },
+    markdown = {
+       function()
+          return {
+            exe = "markdownfmt",
+            args = {"-w", vim.api.nvim_buf_get_name(0)},
             stdin = true
           }
         end

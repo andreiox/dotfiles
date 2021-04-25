@@ -1,6 +1,6 @@
 # Profile file. Runs on login. Environmental variables are set here.
 
-export PATH="$PATH:$HOME/.scripts:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.scripts:$HOME/.local/bin:$HOME/go/bin"
 export EDITOR="vim"
 export TERMINAL="st"
 export BROWSER="firefox"
