@@ -6,7 +6,8 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'vim-airline/vim-airline-themes'
 
     "Code stuff
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/nvim-compe'
     Plug 'janko/vim-test'
     Plug 'mhartington/formatter.nvim'
 

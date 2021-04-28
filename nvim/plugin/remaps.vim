@@ -7,13 +7,12 @@ nnoremap <leader>vs :vsplit<CR>
 nnoremap <leader>sp :split<CR>
 
 "Plugin dependent
-inoremap <silent><expr> <c-space> coc#refresh()
-
-nmap <F2> <Plug>(coc-rename)
-nmap <silent> k :call CocAction('doHover')<CR>
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gr <Plug>(coc-references)
-nmap <leader>dia :<C-u>CocList diagnostics<CR>
+inoremap <silent><expr> <c-space> compe#complete()
+nnoremap <F2> :lua vim.lsp.buf.rename()<CR>
+nnoremap <silent>gd :lua vim.lsp.buf.definition()<CR>
+nnoremap <silent>gr :lua vim.lsp.buf.references()<CR>
+nnoremap <silent>k :lua vim.lsp.buf.hover()<CR>
+nnoremap <silent><c-n> :lua vim.lsp.diagnostic.goto_next()<CR>
 
 nmap <leader>gs :G<CR>
 nmap <leader>gc :Gcommit<CR>
