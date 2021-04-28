@@ -10,6 +10,7 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'hrsh7th/nvim-compe'
     Plug 'janko/vim-test'
     Plug 'mhartington/formatter.nvim'
+    Plug 'jiangmiao/auto-pairs'
 
     "Git
     Plug 'mhinz/vim-signify'
