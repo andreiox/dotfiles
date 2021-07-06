@@ -11,7 +11,7 @@ inoremap <silent><expr> <c-space> compe#complete()
 nnoremap <F2> :lua vim.lsp.buf.rename()<CR>
 nnoremap <silent>gd :lua vim.lsp.buf.definition()<CR>
 nnoremap <silent>gr :lua vim.lsp.buf.references()<CR>
-nnoremap <silent>k :lua vim.lsp.buf.hover()<CR>
+nnoremap <leader>k :lua vim.lsp.buf.hover()<CR>
 nnoremap <silent><c-n> :lua vim.lsp.diagnostic.goto_next()<CR>
 
 nmap <leader>gs :G<CR>
@@ -32,6 +32,3 @@ nmap <leader>ta :TestSuite --verbose<CR>
 nmap <leader>q :FZF .<CR>
 nmap <leader>ps :Rg<SPACE>""<left>
 nmap <leader>u :UndotreeToggle<CR>
-
-nmap <space>f :CocCommand explorer --preset simplify<CR>
-autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
