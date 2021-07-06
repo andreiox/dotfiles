@@ -2,9 +2,9 @@
 
 if (( $(xrandr --query | grep " connected" | wc -l) > 1)); then
   xrandr --output HDMI-0 --primary
-  xrandr --output DVI-D-0 --mode 1440x900 --left-of HDMI-0
+  xrandr --output DP-0 --mode 2560x1440 --rate 170.00 --right-of HDMI-0
 
-  sleep 4
+  sleep 2
   random-wallpaper
 fi
 
