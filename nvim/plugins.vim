@@ -25,5 +25,7 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'mbbill/undotree'
     Plug 'unblevable/quick-scope'
     Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+    Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'kyazdani42/nvim-tree.lua'
 
 call plug#end()

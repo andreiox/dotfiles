@@ -32,3 +32,5 @@ nmap <leader>ta :TestSuite --verbose<CR>
 nmap <leader>q :FZF .<CR>
 nmap <leader>ps :Rg<SPACE>""<left>
 nmap <leader>u :UndotreeToggle<CR>
+
+nnoremap <leader>f :NvimTreeToggle<CR>
