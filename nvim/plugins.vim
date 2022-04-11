@@ -24,6 +24,7 @@ call plug#begin('~/.config/nvim/bundle')
     "Utils
     Plug 'mhartington/formatter.nvim'
     Plug 'jiangmiao/auto-pairs'
+    Plug 'frazrepo/vim-rainbow'
     Plug 'tpope/vim-surround'
     Plug 'scrooloose/nerdcommenter'
     Plug 'jremmen/vim-ripgrep'

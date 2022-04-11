@@ -34,3 +34,11 @@ nmap <leader>ps :Rg<SPACE>""<left>
 nmap <leader>u :UndotreeToggle<CR>
 
 nnoremap <leader>f :NvimTreeToggle<CR>
+
+nmap <leader>eb <localleader>eb
+nmap <leader>ee <localleader>ee
+nmap <leader>er <localleader>er
+nmap <leader>ls <localleader>ls
+nmap <leader>lv <localleader>lv
+nmap <leader>lR <localleader>lR
+nmap <leader>ei :Clj<CR>
