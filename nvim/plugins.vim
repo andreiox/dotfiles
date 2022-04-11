@@ -11,6 +11,12 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'hrsh7th/nvim-compe'
     Plug 'janko/vim-test'
 
+    Plug 'Olical/conjure'
+    Plug 'tami5/compe-conjure'
+    Plug 'tpope/vim-dispatch'
+    Plug 'clojure-vim/vim-jack-in'
+    Plug 'radenling/vim-dispatch-neovim'
+
     "Git
     Plug 'mhinz/vim-signify'
     Plug 'tpope/vim-fugitive'

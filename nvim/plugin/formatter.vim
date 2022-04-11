@@ -2,7 +2,7 @@
 autocmd BufWritePre * %s/\s\+$//e
 
 "Format on save
-autocmd BufWritePost *.ts,*.js,*.json,*.xml,*.md FormatWrite
+autocmd BufWritePost *.ts,*.js,*.json,*.xml,*.md,*.clj FormatWrite
 
 lua << EOF
 require('formatter').setup({
@@ -49,6 +49,15 @@ require('formatter').setup({
           return {
             exe = "markdownfmt",
             args = {},
+            stdin = true
+          }
+        end
+    },
+    clojure = {
+       function()
+          return {
+            exe = "joker",
+            args = {"--format", "-"},
             stdin = true
           }
         end
