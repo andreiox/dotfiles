@@ -41,4 +41,4 @@ nmap <leader>er <localleader>er
 nmap <leader>ls <localleader>ls
 nmap <leader>lv <localleader>lv
 nmap <leader>lR <localleader>lR
-nmap <leader>ei :Clj<CR><C-\><C-N>gt
+nmap <leader>ei :Lein<CR><C-\><C-N>gt
