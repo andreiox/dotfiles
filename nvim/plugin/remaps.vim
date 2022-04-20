@@ -26,8 +26,9 @@ nmap <leader>hu :SignifyHunkUndo<CR>
 nmap <leader>mp :InstantMarkdownPreview<CR>
 nmap <leader>ms :InstantMarkdownStop<CR>
 
-nmap <leader>tf :TestFile --verbose<CR>
-nmap <leader>ta :TestSuite --verbose<CR>
+nmap <leader>tf :TestFile<CR>
+nmap <leader>te :TestNearest<CR>
+nmap <leader>ta :TestSuite<CR>
 
 nmap <leader>q :FZF .<CR>
 nmap <leader>ps :Rg<SPACE>""<left>

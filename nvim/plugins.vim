@@ -16,6 +16,7 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'tpope/vim-dispatch'
     Plug 'clojure-vim/vim-jack-in'
     Plug 'radenling/vim-dispatch-neovim'
+    Plug 'tpope/vim-fireplace'
 
     "Git
     Plug 'mhinz/vim-signify'
