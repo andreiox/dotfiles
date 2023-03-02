@@ -11,7 +11,7 @@ super + Return
     $TERMINAL
 
 # program launcher
-super + @q
+super + @space
     dmenu_run
 
 # launch browser

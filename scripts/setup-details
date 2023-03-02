@@ -8,5 +8,5 @@ if (( $(xrandr --query | grep " connected" | wc -l) > 1)); then
   random-wallpaper
 fi
 
-update-datetime
 $HOME/.scripts/kblayout us
+xset r rate 250 30
