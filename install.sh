@@ -1,20 +1,18 @@
 #!/bin/sh
 
+mkdir ~/.config
+
 # ============= NEOVIM
 
-# mkdir -p $HOME/.config/nvim
-# mkdir -p $HOME/.config/nvim/plugin
+rm -rf ~/.config/nvim
+ln -s $HOME/dev/dotfiles/nvim/ ~/.config/nvim
 
-# for f in `find . -regex ".*\.vim$\|.*\.lua$"`; do
-#     rm -rf ~/.config/$f
-#     ln -s ~/dev/dotfiles/$f ~/.config/$f
-# done
+# packer
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-# vim-plug
-# curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# vim-plug install plugs
-# nvim +PlugInstall +UpdateRemotePlugins +qall
+# packer install plugins
+nvim +PackerSync +qall
 
 
 # ============= POLYBAR
