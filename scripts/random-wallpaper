@@ -3,4 +3,4 @@
 wallpapers=(~/Images/wallpapers/*)
 random_number=$((1 + RANDOM % ${#wallpapers[@]}))
 
-setbg ${wallpapers[$random_number]}
+setbg ${wallpapers[$( expr $random_number - 1 )]}
