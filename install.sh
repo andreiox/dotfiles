@@ -77,4 +77,4 @@ fi
 
 # ============ done
 
-echo "andreiox dotfiles installation is done.
+echo "andreiox dotfiles installation is done."
