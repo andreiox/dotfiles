@@ -53,6 +53,14 @@ return require('packer').startup(function(use)
 		  {'L3MON4D3/LuaSnip'},             -- Required
 		  {'rafamadriz/friendly-snippets'}, -- Optional
 	  }
-}
+  }
+
+  use('mhinz/vim-signify')
+
+  use('mrjones2014/nvim-ts-rainbow')
+
+  use('jiangmiao/auto-pairs')
+
+  use('preservim/nerdcommenter')
 end)
 
