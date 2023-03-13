@@ -63,6 +63,8 @@ return require('packer').startup(function(use)
 
   use('preservim/nerdcommenter')
 
+  use('vim-test/vim-test')
+
   -- clojure shit
   use('tpope/vim-dispatch')
   use('clojure-vim/vim-jack-in')
