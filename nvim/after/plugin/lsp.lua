@@ -50,3 +50,5 @@ lsp.setup()
 vim.diagnostic.config({
     virtual_text = true
 })
+
+vim.api.nvim_create_autocmd( "BufWritePre", { pattern = { "*.clj", "*.js", "*.ts" }, command = "lua vim.lsp.buf.format({ async = false })"})
