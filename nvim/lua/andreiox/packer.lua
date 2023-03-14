@@ -22,6 +22,14 @@ return require('packer').startup(function(use)
           end
   })
 
+  -- lualine
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
+  use('arkav/lualine-lsp-progress')
+
   -- syntax highlighing
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
