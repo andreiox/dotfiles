@@ -73,6 +73,9 @@ return require('packer').startup(function(use)
 
   use('vim-test/vim-test')
 
+  -- boosts f movement
+  use('unblevable/quick-scope')
+
   -- clojure shit
   use('tpope/vim-dispatch')
   use('clojure-vim/vim-jack-in')
@@ -80,4 +83,3 @@ return require('packer').startup(function(use)
 
   use('Olical/conjure')
 end)
-
