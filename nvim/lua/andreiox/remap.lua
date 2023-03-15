@@ -13,3 +13,5 @@ vim.keymap.set("n", "<C-Y>", [[<C-R>]])
 -- splits
 vim.keymap.set("n", "<leader>vs", [[:vsplit<CR>]])
 vim.keymap.set("n", "<leader>sp", [[:split<CR>]])
+vim.keymap.set("n", "<leader>ra", [[:vertical resize +10<CR>]])
+vim.keymap.set("n", "<leader>rd", [[:vertical resize -10<CR>]])
