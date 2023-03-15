@@ -14,6 +14,14 @@ return require('packer').startup(function(use)
   -- Theme
   use('ellisonleao/gruvbox.nvim')
 
+  -- file explorer
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    },
+  }
+
   -- lualine
   use {
     'nvim-lualine/lualine.nvim',
