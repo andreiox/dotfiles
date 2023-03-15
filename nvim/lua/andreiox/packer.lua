@@ -12,13 +12,7 @@ return require('packer').startup(function(use)
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
 
   -- Theme
-  use({
-	  "ellisonleao/gruvbox.nvim",
-	  config = function()
-		vim.o.background = "dark"
-		vim.cmd([[colorscheme gruvbox]])
-          end
-  })
+  use('ellisonleao/gruvbox.nvim')
 
   -- lualine
   use {
