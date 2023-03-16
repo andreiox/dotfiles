@@ -15,4 +15,14 @@ require'nvim-treesitter.configs'.setup {
     extended_mode = true,
     max_file_lines = nil,
   },
+
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<C-w>",
+      node_incremental = "<C-w>",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    }
+  }
 }
