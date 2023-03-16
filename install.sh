@@ -74,7 +74,7 @@ if [ ! -d "$PACKERDIR" ]; then
 fi
 
 # packer install plugins
-# nvim +PackerSync
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 
 # ============ done
