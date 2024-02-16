@@ -12,3 +12,6 @@ vim.keymap.set("n", "<leader>rc", [[:ConjureLogResetSoft<CR>]])
 
 -- tests
 vim.keymap.set("n", "<leader>tn", [[:ConjureCljRunCurrentNsTests<CR>]])
+
+-- disable auto-repl
+vim.g['conjure#client#clojure#nrepl#connection#auto_repl#enabled'] = false
