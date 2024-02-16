@@ -49,6 +49,11 @@ ln -s $HOME/dev/dotfiles/scripts $HOME/.scripts
 mkdir -p $HOME/Images/wallpapers
 
 
+# ============= POLYBAR
+
+ln -sf $HOME/dev/dotfiles/alacritty $HOME/.config
+
+
 # ============= yay
 
 if ! command -v "yay" &> /dev/null
