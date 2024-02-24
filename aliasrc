@@ -1,4 +1,3 @@
-alias ls="ls -Ah --color=auto"
 alias vim="nvim"
 alias p="sudo pacman"
 alias ss="sudo systemctl"
@@ -9,3 +8,6 @@ alias gs="git status"
 alias gcm="git commit"
 alias gco="git checkout"
 alias ct='cat ~/dev/dotfiles/textfiles/commit-types'
+
+alias cat='bat'
+alias ls="eza -la"
