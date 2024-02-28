@@ -75,7 +75,9 @@ return require('packer').startup(function(use)
   use('vim-test/vim-test')
 
   -- boosts f movement
-  use('unblevable/quick-scope')
+  -- hack to make quick-scope work
+  vim.g['qs_highlight_on_keys'] = {'f', 'F'}
+  use ('unblevable/quick-scope')
 
   -- clojure shit
   use('tpope/vim-dispatch')
