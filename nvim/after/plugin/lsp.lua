@@ -1,9 +1,10 @@
 local lsp = require("lsp-zero")
+local lsp_config = require("lspconfig")
 
 lsp.preset("recommended")
 
 lsp.ensure_installed({
-	'tsserver',
+  'tsserver',
   'clojure_lsp'
 })
 
@@ -21,13 +22,13 @@ lsp.setup_nvim_cmp({
 })
 
 lsp.set_preferences({
-    suggest_lsp_servers = false,
-    sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
-    }
+  suggest_lsp_servers = false,
+  sign_icons = {
+    error = 'E',
+    warn = 'W',
+    hint = 'H',
+    info = 'I'
+  }
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -44,6 +45,12 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
+
+lsp.set_server_config({
+  before_init = function(params)
+    params.workDoneToken = "enable-progress"
+  end,
+})
 
 lsp.setup()
 

@@ -1,6 +1,10 @@
 local lualine = require('lualine')
 
-lualine.setup {
+local colors = {
+  magenta = '#c678dd',
+}
+
+local config = {
   options = {
     icons_enabled = false,
     theme = 'auto',
@@ -40,3 +44,20 @@ lualine.setup {
   inactive_winbar = {},
   extensions = {}
 }
+
+local function ins_left(component)
+  table.insert(config.sections.lualine_c, component)
+end
+
+ins_left {
+	'lsp_progress',
+	display_components = { 'lsp_client_name', { 'percentage', 'message' }},
+	colors = {
+	  percentage  = colors.magenta,
+	  title  = colors.magenta,
+	  message  = colors.magenta,
+	  use = true,
+	},
+}
+
+lualine.setup(config)

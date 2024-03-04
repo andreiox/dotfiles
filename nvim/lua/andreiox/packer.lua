@@ -28,7 +28,7 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
-  use('j-hui/fidget.nvim')
+  use('arkav/lualine-lsp-progress')
 
   -- syntax highlighing
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
