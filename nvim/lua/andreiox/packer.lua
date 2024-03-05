@@ -85,4 +85,7 @@ return require('packer').startup(function(use)
   use('radenling/vim-dispatch-neovim')
 
   use('Olical/conjure')
+
+  -- copilot shit
+  use('github/copilot.vim')
 end)
