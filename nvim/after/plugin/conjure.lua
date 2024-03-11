@@ -11,8 +11,8 @@ vim.keymap.set("n", "<leader>rv", [[:ConjureLogVSplit<CR>]])
 vim.keymap.set("n", "<leader>rc", [[:ConjureLogResetSoft<CR>]])
 
 -- tests
-vim.keymap.set("n", "<leader>tn", [[:ConjureCljRunCurrentNsTests<CR>]])
-vim.keymap.set("n", "<leader>ta", [[:ConjureCljRunCurrentTest<CR>]])
+vim.keymap.set("n", "<leader>tn", [[:ConjureLogResetSoft<CR>:ConjureCljRunCurrentNsTests<CR>]])
+vim.keymap.set("n", "<leader>ta", [[:ConjureLogResetSoft<CR>:ConjureCljRunCurrentTest<CR>]])
 
 vim.g['conjure#client#clojure#nrepl#test#current_form_names'] = {"deftest", "defflow", "defspec", "describe"}
 
