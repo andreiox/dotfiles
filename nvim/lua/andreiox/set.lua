@@ -32,5 +32,6 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 vim.opt.isfname:append("@-@")
 vim.opt.mouse = nil
+vim.opt.cursorline = true
 
 vim.opt.clipboard = "unnamedplus"
