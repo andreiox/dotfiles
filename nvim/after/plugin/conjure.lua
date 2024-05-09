@@ -1,7 +1,10 @@
 vim.g.maplocalleader = ","
 
 -- starts repl + comeback to original tab
-vim.keymap.set("n", "<leader>repl", [[:Lein<CR><C-\><C-N>gt]])
+vim.keymap.set("n", "<leader>repl", [[:Lein<CR><C-\><C-N>gt:ConjureLogVSplit<CR><C-w><C-w>]])
+
+-- closes repl in other tab
+vim.keymap.set("n", "<leader>crepl", [[:ConjureLogCloseVisible<CR>gtAexit<CR>]])
 
 -- evaluate whole file
 vim.keymap.set("n", "<leader>eb", [[:ConjureEvalBuf<CR>]])
