@@ -88,4 +88,7 @@ return require('packer').startup(function(use)
 
   -- copilot shit
   use('github/copilot.vim')
+
+  -- todo highlight
+  use {'folke/todo-comments.nvim', requires = {{'nvim-lua/plenary.nvim'}}}
 end)
