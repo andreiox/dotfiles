@@ -54,19 +54,6 @@ mkdir -p $HOME/Images/wallpapers
 ln -sf $HOME/dev/dotfiles/alacritty $HOME/.config
 
 
-# ============= yay
-
-if ! command -v "yay" &> /dev/null
-then
-	echo "yay is missing. to install, do the following"
-	echo ""
-	echo "git clone https://aur.archlinux.org/yay-bin.git"
-	echo "cd yay-bin"
-	echo "makepkg -i"
-	echo ""
-fi
-
-
 # ============= NEOVIM
 
 rm -rf ~/.config/nvim

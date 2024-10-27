@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 function check_receiving_branch_exists () {
   if [ -z "$1" ]; then
