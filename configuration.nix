@@ -121,7 +121,6 @@
     bat
     zoxide
 
-    rxvt-unicode
     bspwm
     sxhkd
     polybar

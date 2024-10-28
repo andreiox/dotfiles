@@ -12,5 +12,5 @@ alias ct='cat ~/dev/dotfiles/textfiles/commit-types'
 alias cat='bat'
 alias ls="eza -la"
 
-alias rebuild='sudo nixos-rebuild switch'
+alias rebuild='sudo nixos-rebuild switch -I nixos-config=/home/andre/dev/dotfiles/configuration.nix'
 alias cfg='sudo nvim ~/dev/dotfiles/configuration.nix'
