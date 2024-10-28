@@ -13,4 +13,4 @@ alias cat='bat'
 alias ls="eza -la"
 
 alias rebuild='sudo nixos-rebuild switch'
-alias cfg='sudo nvim /etc/nixos/configuration.nix'
+alias cfg='sudo nvim ~/dev/dotfiles/configuration.nix'
