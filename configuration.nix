@@ -46,6 +46,10 @@
     enable = true;
     videoDrivers = ["nvidia"];
     windowManager.bspwm.enable = true;
+    xkb = {
+      layout = "us";
+      variant = "altgr-intl";
+    };
   };
 
   hardware.nvidia = {
@@ -58,12 +62,6 @@
   };
 
   services.displayManager.defaultSession = "none+bspwm";
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "altgr-intl";
-  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
