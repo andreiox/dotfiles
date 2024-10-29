@@ -131,7 +131,8 @@
     # window manager
     bspwm
     sxhkd
-    polybar
+    polybarFull
+    polybar-pulseaudio-control
     alacritty
     dmenu
     feh
