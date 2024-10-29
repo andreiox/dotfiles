@@ -2,9 +2,9 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor HDMI-1 -d I II III IV V VI VII VIII IX X
-bspc monitor DP-1 -d I II III IV V VI VII VIII IX X
-bspc monitor DVI-D-1 -d I II III IV V VI VII VIII IX X
+bspc monitor HDMI-0 -d I II III IV V VI VII VIII IX X
+bspc monitor DP-0 -d I II III IV V VI VII VIII IX X
+bspc monitor DVI-D-0 -d I II III IV V VI VII VIII IX X
 bspc monitor Virtual-1 -d I II III IV V VI VII VIII IX X
 
 bspc config border_width         2

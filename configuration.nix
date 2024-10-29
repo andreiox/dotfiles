@@ -109,11 +109,13 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # essentials
     cmake
     gnumake
     gcc
     killall
 
+    # utils
     htop
     vim
     neovim
@@ -128,6 +130,7 @@
     bat
     zoxide
 
+    # window manager
     bspwm
     sxhkd
     polybar
@@ -135,10 +138,15 @@
     dmenu
     feh
 
+    # dev
     nodejs_22
     jdk
     clojure
     leiningen
+
+    # other programs
+    _1password-gui
+    obsidian
   ];
 
   fonts.packages = with pkgs; [
