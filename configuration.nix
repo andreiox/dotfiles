@@ -11,9 +11,8 @@
     ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -45,9 +44,17 @@
 
   services.xserver = {
     enable = true;
-    windowManager.bspwm = {
-      enable = true;
-    };
+    videoDrivers = ["nvidia"];
+    windowManager.bspwm.enable = true;
+  };
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   services.displayManager.defaultSession = "none+bspwm";
@@ -126,6 +133,7 @@
     polybar
     alacritty
     dmenu
+    feh
 
     nodejs_22
     jdk
@@ -138,8 +146,6 @@
   ];
 
   programs.zsh.enable = true;
-
-  virtualisation.virtualbox.guest.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
