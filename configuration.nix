@@ -4,6 +4,11 @@
 
 { config, pkgs, ... }:
 
+let
+  unstableTarball =
+    fetchTarball
+      https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -104,6 +109,14 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  nixpkgs.config = {
+    packageOverrides = pkgs: {
+      unstable = import unstableTarball {
+        config = config.nixpkgs.config;
+      };
+    };
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -114,9 +127,10 @@
     killall
 
     # utils
+    wget
     htop
     vim
-    neovim
+    unstable.neovim
     git
     gh
     ripgrep
@@ -138,14 +152,17 @@
     feh
 
     # dev
+    tree-sitter
     nodejs_22
     jdk
     clojure
+    clojure-lsp
     leiningen
 
     # other programs
     _1password-gui
     obsidian
+    discord
   ];
 
   fonts.packages = with pkgs; [
