@@ -1,5 +1,5 @@
 vim.g['qs_enable'] = 1
-vim.g['qs_max_chars'] = 150
+vim.g['qs_max_chars'] = 1500
 
 vim.cmd[[
 augroup qs_colors

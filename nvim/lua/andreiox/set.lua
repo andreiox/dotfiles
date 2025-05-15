@@ -35,3 +35,5 @@ vim.opt.mouse = nil
 vim.opt.cursorline = true
 
 vim.opt.clipboard = "unnamedplus"
+
+vim.opt.mouse = ""
