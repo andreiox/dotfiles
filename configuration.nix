@@ -150,6 +150,7 @@ in
     alacritty
     dmenu
     feh
+    xfce.thunar
 
     # dev
     tree-sitter
