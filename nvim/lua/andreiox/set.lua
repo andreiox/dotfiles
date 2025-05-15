@@ -37,3 +37,9 @@ vim.opt.cursorline = true
 vim.opt.clipboard = "unnamedplus"
 
 vim.opt.mouse = ""
+
+-- disable neovim 0.11 LSP default mappings
+pcall(vim.keymap.del, "n", "gra")
+pcall(vim.keymap.del, "n", "gri")
+pcall(vim.keymap.del, "n", "grn")
+pcall(vim.keymap.del, "n", "grr")
