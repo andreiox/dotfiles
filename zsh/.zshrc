@@ -3,8 +3,8 @@ PS1="%B%{$fg[green]%}%n%{$fg[red]%} at %{$fg[blue]%}%M%{$fg[yellow]%} in %{$fg[m
 
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
-export HISTSIZE=10000
-export SAVEHIST=10000
+export HISTSIZE=10000000
+export SAVEHIST=10000000
 export HISTFILE=~/.zhistory
 setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS

@@ -114,6 +114,13 @@ in
       unstable = import unstableTarball {
         config = config.nixpkgs.config;
       };
+      dmenu = pkgs.dmenu.override {
+        patches = [
+          /home/andre/dev/dotfiles/dmenu/dmenu-center-20250407-b1e217b.diff
+          /home/andre/dev/dotfiles/dmenu/dmenu-border-20230512-0fe460d.diff
+          /home/andre/dev/dotfiles/dmenu/dmenu-gruvbox-20210329-9ae8ea5.diff
+        ];
+      };
     };
   };
 
@@ -141,6 +148,8 @@ in
     eza
     bat
     zoxide
+    libratbag
+    piper
 
     # window manager
     bspwm
@@ -182,8 +191,8 @@ in
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  # Enable libratbag (gaming mice)
+  services.ratbagd.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
