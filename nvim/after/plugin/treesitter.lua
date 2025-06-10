@@ -10,12 +10,6 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 
-  rainbow = {
-    enable = false,
-    extended_mode = false,
-    max_file_lines = nil,
-  },
-
   incremental_selection = {
     enable = true,
     keymaps = {

@@ -64,7 +64,7 @@ return require('packer').startup(function(use)
 
   use('mhinz/vim-signify')
 
-  use('mrjones2014/nvim-ts-rainbow')
+  use('hiphish/rainbow-delimiters.nvim')
 
   use('jiangmiao/auto-pairs')
 

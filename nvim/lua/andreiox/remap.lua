@@ -15,3 +15,6 @@ vim.keymap.set("n", "<leader>vs", [[:vsplit<CR>]])
 vim.keymap.set("n", "<leader>sp", [[:split<CR>]])
 vim.keymap.set("n", "<leader>ra", [[:vertical resize +10<CR>]])
 vim.keymap.set("n", "<leader>rd", [[:vertical resize -10<CR>]])
+
+-- nu/tap
+vim.keymap.set("n", "<leader>ap", [[i#nu/tap <Esc>]])
