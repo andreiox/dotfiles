@@ -2,7 +2,8 @@ local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
 
-require('lspconfig').clojure_lsp.setup({})
+vim.lsp.config("clojure_lsp", {})
+vim.lsp.enable({"clojure_lsp"})
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
