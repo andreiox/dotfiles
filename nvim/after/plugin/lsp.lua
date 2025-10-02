@@ -5,6 +5,9 @@ lsp.preset("recommended")
 vim.lsp.config("clojure_lsp", {})
 vim.lsp.enable({"clojure_lsp"})
 
+vim.lsp.config("jsonls", {})
+vim.lsp.enable({"jsonls"})
+
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -58,5 +61,5 @@ vim.diagnostic.config({
     virtual_text = true
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", { pattern = { "*.clj", "*.cljs", "*.js", "*.ts" }, command = "lua vim.lsp.buf.format({ async = false })"})
+vim.api.nvim_create_autocmd("BufWritePre", { pattern = { "*.clj", "*.cljs", "*.js", "*.ts", "*.json" }, command = "lua vim.lsp.buf.format({ async = false })"})
 vim.api.nvim_create_autocmd("BufWritePre", { pattern = { "*" }, command = [[%s/\s\+$//e]] })
