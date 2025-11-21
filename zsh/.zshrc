@@ -10,9 +10,12 @@ setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt EXTENDED_HISTORY
 
-if [ -n "${commands[fzf-share]}" ]; then
-  source "$(fzf-share)/key-bindings.zsh"
-  source "$(fzf-share)/completion.zsh"
-fi
+source <(fzf --zsh)
+
+xset r rate 250 30
+
+# gaming shit
+
+MANGOHUD=1
 
 eval "$(zoxide init --cmd cd zsh)"
