@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 if (( $(xrandr --query | grep " connected" | wc -l) > 1)); then
-  xrandr --output HDMI-0 --primary
-  xrandr --output DP-0 --mode 2560x1440 --rate 170.0 --right-of HDMI-0
-  xrandr --output DVI-D-0 --mode 1920x1080 --above DP-0
+  xrandr --output DisplayPort-1 --primary --mode 2560x1440 --rate 170.0
+  xrandr --output DisplayPort-0 --mode 1920x1080 --above DisplayPort-1
+  xrandr --output HDMI-A-0 --mode 1920x1080 --left-of DisplayPort-1
 
   sleep 2
   random-wallpaper
