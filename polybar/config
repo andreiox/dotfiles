@@ -54,7 +54,7 @@ bottom = false
 fixed-center = false
 line-size = 2
 radius = 0
-override-redirect = true
+;override-redirect = true
 wm-restack = bspwm
 
 background = ${colors.background}
