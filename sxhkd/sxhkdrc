@@ -36,6 +36,9 @@ alt + shift + x
 alt + shift + s
     prompt "Shutdown now?" "shutdown now"
 
+super + shift + s
+    escrotum -s -C
+
 #
 # bspwm hotkeys
 #
