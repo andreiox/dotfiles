@@ -67,8 +67,8 @@ font-0 = UbuntuMono Nerd Font:size=11;1
 font-2 = Noto Sans Mono:style=Regular
 
 modules-left = bspwm
-modules-center =
-modules-right = pulseaudio filesystem temperature memory cpu date
+modules-center = wired-network
+modules-right = pulseaudio filesystem gpu-temp memory cpu cpu-temp date
 
 tray-position = ${env:TRAY_POSITION:right}
 
@@ -152,10 +152,30 @@ format-full-prefix-foreground = #ffffff
 format-full-underline = ${self.format-charging-underline}
 format-full-foreground = #ffffff
 
-; ramp-capacity-0 = 
-; ramp-capacity-1 = 
-; ramp-capacity-2 = 
-; ramp-capacity-foreground = ${colors.foreground-alt}
+
+[module/cpu-temp]
+type = custom/script
+exec = ~/dev/dotfiles/polybar/cpu_temp.sh
+interval = 1
+format-prefix = " "
+format-underline = ${colors.color1}
+
+
+[module/gpu-temp]
+type = custom/script
+exec = ~/dev/dotfiles/polybar/gpu_temp.sh
+interval = 1
+format-prefix = " "
+format-underline = ${colors.color4}
+
+
+[module/wired-network]
+type = internal/network
+interface = enp6s0
+accumulate-stats = true
+
+label-disconnected = not connected
+label-connected = nebuchadnezzar (%local_ip%):  %downspeed%  %upspeed%
 
 
 [module/temperature]
