@@ -14,3 +14,5 @@ alias ls="eza -la"
 
 alias rebuild='sudo nixos-rebuild switch -I nixos-config=/home/andre/dev/dotfiles/configuration.nix'
 alias cfg='vim ~/dev/dotfiles/configuration.nix'
+
+alias update='yay -Syyu && flatpak update'

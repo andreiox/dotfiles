@@ -27,6 +27,9 @@ super + g
 super + d
     mullvad-exclude discord
 
+super + j
+    flatpak run com.github.iwalton3.jellyfin-media-player
+
 super + End
     gscreenshot-cli -c -s
 
