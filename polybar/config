@@ -16,12 +16,10 @@
 ;
 ;==========================================================
 [colors]
-background = #660d0d0d
-;background = #00000000
+background = #000000
 background-alt = #444
 foreground = #ffffff
 
-;foreground = #dfdfdf
 foreground-alt = #555
 
 enable-ipc = true
@@ -66,19 +64,22 @@ padding-left = 2
 padding-right = 2
 
 font-0 = UbuntuMono Nerd Font:size=11;1
-font-1 = InconsolataLGC Nerd Font:style=Medium;1
-font-2 = TerminessTTFNerdFontMono:size=10;1
+font-2 = Noto Sans Mono:style=Regular
 
 modules-left = bspwm
 modules-center =
-modules-right = xbacklight pulseaudio filesystem temperature memory cpu battery date
+modules-right = pulseaudio filesystem temperature memory cpu date
 
-tray-position = right
-tray-padding = 2
-tray-background = ${colors.background}
+tray-position = ${env:TRAY_POSITION:right}
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+
+[module/tray]
+type = internal/tray
+tray-size = 80%
+tray-background = ${colors.background}
 
 
 [module/filesystem]
@@ -95,7 +96,7 @@ label-unmounted-foreground = ${colors.color0}
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = #ffffff
 format-underline = ${colors.color1}
 label = %percentage:2%%
@@ -105,7 +106,7 @@ label-foreground = #ffffff
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "ﴵ "
+format-prefix = "  "
 format-prefix-foreground = #ffffff
 format-underline = ${colors.color5}
 
@@ -162,11 +163,11 @@ type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
 
-format-prefix = "﨎 "
+format-prefix = " "
 format-prefix-foreground = #ffffff
 format-underline = ${colors.color2}
 format-warn-underline = ${self.format-underline}
-format-warn-prefix = "﨎 "
+format-warn-prefix = " "
 format-warn-prefix-foreground = ${colors.alert}
 
 label = %temperature-c%
