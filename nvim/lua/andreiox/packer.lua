@@ -89,4 +89,13 @@ return require('packer').startup(function(use)
 
   -- todo highlight
   use {'folke/todo-comments.nvim', requires = {{'nvim-lua/plenary.nvim'}}}
+
+  use {
+    "editor-code-assistant/eca-nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+    }
+}
+
 end)
