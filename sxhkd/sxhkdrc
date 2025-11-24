@@ -42,6 +42,9 @@ alt + shift + s
 super + shift + s
     escrotum -s -C
 
+super + v
+    mullvad-vpn
+
 #
 # bspwm hotkeys
 #
