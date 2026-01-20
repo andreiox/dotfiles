@@ -8,6 +8,9 @@ vim.lsp.enable({"clojure_lsp"})
 vim.lsp.config("jsonls", {})
 vim.lsp.enable({"jsonls"})
 
+vim.lsp.config("ts_ls", {})
+vim.lsp.enable({"ts_ls"})
+
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
