@@ -4,7 +4,7 @@ export PATH="$PATH:$HOME/.scripts:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin
 export EDITOR="vim"
 export TERMINAL="alacritty"
 export BROWSER="firefox"
-export FS="thunar"
+export FS="dolphin"
 export ZDOTDIR="$HOME/.config/zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
 
