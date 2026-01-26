@@ -1,5 +1,5 @@
 vim.g['test#javascript#nodetest#file_pattern'] = '.*.test.[tj]s'
-vim.g['test#javascript#nodetest#executable'] = 'node --test -r ts-node/register'
+vim.g['test#javascript#nodetest#executable'] = 'NODE_ENV=test node --test -r ts-node/register'
 vim.g['test#neovim#start_normal'] = 1
 vim.g['test#strategy'] = 'neovim'
 
