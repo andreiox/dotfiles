@@ -78,11 +78,11 @@ return require('packer').startup(function(use)
   use ('unblevable/quick-scope')
 
   -- clojure shit
-  use('tpope/vim-dispatch')
-  use('clojure-vim/vim-jack-in')
-  use('radenling/vim-dispatch-neovim')
+  --use('tpope/vim-dispatch')
+  --use('clojure-vim/vim-jack-in')
+  --use('radenling/vim-dispatch-neovim')
 
-  use('Olical/conjure')
+  --use('Olical/conjure')
 
   -- copilot shit
   use('github/copilot.vim')
@@ -90,12 +90,12 @@ return require('packer').startup(function(use)
   -- todo highlight
   use {'folke/todo-comments.nvim', requires = {{'nvim-lua/plenary.nvim'}}}
 
-  use {
-    "editor-code-assistant/eca-nvim",
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-    }
-}
+  --use {
+    --"editor-code-assistant/eca-nvim",
+    --requires = {
+      --"MunifTanjim/nui.nvim",
+      --"nvim-lua/plenary.nvim",
+    --}
+  --}
 
 end)

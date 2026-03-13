@@ -2,9 +2,6 @@ local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
 
-vim.lsp.config("clojure_lsp", {})
-vim.lsp.enable({"clojure_lsp"})
-
 vim.lsp.config("jsonls", {})
 vim.lsp.enable({"jsonls"})
 
