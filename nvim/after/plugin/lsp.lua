@@ -1,4 +1,5 @@
 local lsp = require("lsp-zero")
+local kotlin_nvim = require('kotlin')
 
 lsp.preset("recommended")
 
@@ -7,6 +8,8 @@ vim.lsp.enable({"jsonls"})
 
 vim.lsp.config("ts_ls", {})
 vim.lsp.enable({"ts_ls"})
+
+kotlin_nvim.setup({})
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -61,5 +64,5 @@ vim.diagnostic.config({
     virtual_text = true
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", { pattern = { "*.clj", "*.cljs", "*.js", "*.ts", "*.json" }, command = "lua vim.lsp.buf.format({ async = false })"})
+vim.api.nvim_create_autocmd("BufWritePre", { pattern = { "*.clj", "*.cljs", "*.js", "*.ts", "*.json", "*.kt" }, command = "lua vim.lsp.buf.format({ async = false })"})
 vim.api.nvim_create_autocmd("BufWritePre", { pattern = { "*" }, command = [[%s/\s\+$//e]] })
