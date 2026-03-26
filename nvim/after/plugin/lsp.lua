@@ -64,5 +64,5 @@ vim.diagnostic.config({
     virtual_text = true
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", { pattern = { "*.clj", "*.cljs", "*.js", "*.ts", "*.json", "*.kt" }, command = "lua vim.lsp.buf.format({ async = false })"})
+vim.api.nvim_create_autocmd("BufWritePre", { pattern = { "*.clj", "*.cljs", "*.js", "*.ts", "*.json", "*.md", "*.kt" }, command = "lua vim.lsp.buf.format({ async = false })"})
 vim.api.nvim_create_autocmd("BufWritePre", { pattern = { "*" }, command = [[%s/\s\+$//e]] })

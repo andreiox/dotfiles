@@ -2,8 +2,11 @@
 
 if (( $(xrandr --query | grep " connected" | wc -l) > 1)); then
   xrandr --output DisplayPort-1 --primary --mode 2560x1440 --rate 170.0
-  xrandr --output DisplayPort-0 --mode 1920x1080 --above DisplayPort-1
   xrandr --output HDMI-A-0 --mode 1920x1080 --left-of DisplayPort-1
+
+  xrandr --newmode "1920x1080_60.00" 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync
+  xrandr --addmode DisplayPort-0 "1920x1080_60.00"
+  xrandr --output DisplayPort-0 --mode "1920x1080_60.00" --above DisplayPort-1
 
   sleep 2
   random-wallpaper
