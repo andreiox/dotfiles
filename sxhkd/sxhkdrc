@@ -27,6 +27,9 @@ super + g
 super + d
     mullvad-exclude discord
 
+super + n
+    mullvad-exclude google-chrome-stable
+
 super + j
     flatpak run com.github.iwalton3.jellyfin-media-player
 
