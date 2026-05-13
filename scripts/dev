@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# ----- helpers ----------------------------------------------------------------
+
+die() {
+  echo "error: $*" >&2
+  exit 1
+}
+
+# ----- arg parsing ------------------------------------------------------------
+
+if [ $# -ne 1 ]; then
+  echo "usage: dev <branch-name>"
+  exit 1
+fi
+
+branch="$1"
+
+# replace '/' with '-' for the worktree directory name
+dir_name="${branch//\//-}"
+
+# check we're inside a git repo
+git rev-parse --git-dir >/dev/null 2>&1 || die "not inside a git repository"
+
+# ----- git worktree -----------------------------------------------------------
+
+worktree_path="../worktrees/${dir_name}"
+
+if [ -d "$worktree_path" ]; then
+  echo "→ worktree already exists at ${worktree_path}, moving in..."
+elif git show-ref --verify --quiet "refs/heads/$branch"; then
+  echo "→ creating worktree at ${worktree_path} for local branch '${branch}'..."
+  git worktree add "$worktree_path" "$branch"
+elif git show-ref --verify --quiet "refs/remotes/origin/$branch"; then
+  echo "→ creating worktree at ${worktree_path} for remote branch 'origin/${branch}'..."
+  git worktree add "$worktree_path" -b "$branch" "origin/$branch"
+else
+  echo "→ creating worktree at ${worktree_path} for new branch '${branch}'..."
+  git worktree add "$worktree_path" -b "$branch"
+fi
+
+echo "→ moving into worktree..."
+cd "$worktree_path"
+
+# ----- tmux session -----------------------------------------------------------
+
+session="dev-${dir_name}"
+
+echo "→ starting tmux session '${session}'..."
+
+# pane 0: nvim (top-left, stays open as shell after quitting)
+tmux new-session -d -s "$session" -c "$(pwd)" 'nvim; exec $SHELL'
+
+# pane 1: pi (right, full height)
+tmux split-window -h -c "$(pwd)" 'pi'
+
+# switch back to pane 0 before splitting it vertically
+tmux select-pane -t 0
+
+# pane 2: shell (bottom-left)
+tmux split-window -v -c "$(pwd)"
+
+# focus back on nvim pane
+tmux select-pane -t 0
+
+tmux attach-session -t "$session"
