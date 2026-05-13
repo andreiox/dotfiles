@@ -66,7 +66,7 @@ return require('packer').startup(function(use)
 
   use('hiphish/rainbow-delimiters.nvim')
 
-  use('jiangmiao/auto-pairs')
+  --use('jiangmiao/auto-pairs')
 
   use('preservim/nerdcommenter')
 
