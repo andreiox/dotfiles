@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+die() {
+  echo "error: $*" >&2
+  exit 1
+}
+
+# ----- arg parsing ------------------------------------------------------------
+
+if [ $# -ne 1 ]; then
+  echo "usage: gdd <branch-name>"
+  exit 1
+fi
+
+branch="$1"
+dir_name="${branch//\//-}"
+worktree_path="../worktrees/${dir_name}"
+
+# check we're inside a git repo
+git rev-parse --git-dir >/dev/null 2>&1 || die "not inside a git repository"
+
+# check branch exists
+if ! git show-ref --verify --quiet "refs/heads/$branch"; then
+  die "branch '${branch}' does not exist"
+fi
+
+echo "→ deleting branch '${branch}'..."
+
+if [ -d "$worktree_path" ]; then
+  echo "  → removing worktree at ${worktree_path}..."
+  rm -rf "$worktree_path"
+  echo "  → pruning stale worktree references..."
+  git worktree prune
+fi
+
+git branch -D "$branch"
+
+echo "✓ done"
