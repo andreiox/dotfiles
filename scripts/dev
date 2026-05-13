@@ -28,17 +28,30 @@ git rev-parse --git-dir >/dev/null 2>&1 || die "not inside a git repository"
 
 worktree_path="../worktrees/${dir_name}"
 
+copy_env_and_pi() {
+  local src="$1" dst="$2"
+  # copy .env* files
+  for f in "$src"/.env*; do
+    [ -f "$f" ] && cp "$f" "$dst/"
+  done
+  # copy .pi/ folder
+  [ -d "$src/.pi" ] && cp -r "$src/.pi" "$dst/"
+}
+
 if [ -d "$worktree_path" ]; then
   echo "→ worktree already exists at ${worktree_path}, moving in..."
 elif git show-ref --verify --quiet "refs/heads/$branch"; then
   echo "→ creating worktree at ${worktree_path} for local branch '${branch}'..."
   git worktree add "$worktree_path" "$branch"
+  copy_env_and_pi "$(pwd)" "$worktree_path"
 elif git show-ref --verify --quiet "refs/remotes/origin/$branch"; then
   echo "→ creating worktree at ${worktree_path} for remote branch 'origin/${branch}'..."
   git worktree add "$worktree_path" -b "$branch" "origin/$branch"
+  copy_env_and_pi "$(pwd)" "$worktree_path"
 else
   echo "→ creating worktree at ${worktree_path} for new branch '${branch}'..."
   git worktree add "$worktree_path" -b "$branch"
+  copy_env_and_pi "$(pwd)" "$worktree_path"
 fi
 
 echo "→ moving into worktree..."
