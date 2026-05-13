@@ -61,21 +61,29 @@ cd "$worktree_path"
 
 session="dev-${dir_name}"
 
-echo "→ starting tmux session '${session}'..."
+if tmux has-session -t="$session" 2>/dev/null; then
+  echo "→ tmux session '${session}' already exists, attaching..."
+else
+  echo "→ starting tmux session '${session}'..."
 
-# pane 0: nvim (top-left, stays open as shell after quitting)
-tmux new-session -d -s "$session" -c "$(pwd)" 'nvim; exec $SHELL'
+  # pane 0: nvim (top-left, stays open as shell after quitting)
+  tmux new-session -d -s "$session" -c "$(pwd)" 'nvim; exec $SHELL'
 
-# pane 1: pi (right, full height)
-tmux split-window -h -c "$(pwd)" 'pi'
+  # pane 1: pi (right, full height)
+  tmux split-window -h -t "$session" -c "$(pwd)" 'pi'
 
-# switch back to pane 0 before splitting it vertically
-tmux select-pane -t 0
+  # switch back to pane 0 before splitting it vertically
+  tmux select-pane -t "${session}.0"
 
-# pane 2: shell (bottom-left)
-tmux split-window -v -c "$(pwd)"
+  # pane 2: shell (bottom-left)
+  tmux split-window -v -t "$session" -c "$(pwd)"
 
-# focus back on nvim pane
-tmux select-pane -t 0
+  # focus back on nvim pane
+  tmux select-pane -t "${session}.0"
+fi
 
-tmux attach-session -t "$session"
+if [ -n "${TMUX:-}" ]; then
+  tmux switch-client -t "$session"
+else
+  tmux attach-session -t "$session"
+fi
