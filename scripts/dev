@@ -66,20 +66,17 @@ if tmux has-session -t="$session" 2>/dev/null; then
 else
   echo "→ starting tmux session '${session}'..."
 
-  # pane 0: nvim (top-left, stays open as shell after quitting)
-  tmux new-session -d -s "$session" -c "$(pwd)" 'nvim; exec $SHELL'
+  # window 1: shell
+  tmux new-session -d -s "$session" -n shell -c "$(pwd)"
 
-  # pane 1: pi (right, full height)
-  tmux split-window -h -t "$session" -c "$(pwd)" 'pi'
+  # window 2: vim (stays open as shell after quitting)
+  tmux new-window -t "$session" -n vim -c "$(pwd)" 'nvim; exec $SHELL'
 
-  # switch back to pane 0 before splitting it vertically
-  tmux select-pane -t "${session}.0"
+  # window 3: pi
+  tmux new-window -t "$session" -n pi -c "$(pwd)" 'pi'
 
-  # pane 2: shell (bottom-left)
-  tmux split-window -v -t "$session" -c "$(pwd)"
-
-  # focus back on nvim pane
-  tmux select-pane -t "${session}.0"
+  # focus the shell window
+  tmux select-window -t "${session}:0"
 fi
 
 if [ -n "${TMUX:-}" ]; then
