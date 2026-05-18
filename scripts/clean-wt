@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+die() {
+  echo "error: $*" >&2
+  exit 1
+}
+
+# check we're inside a git repo
+git rev-parse --git-dir >/dev/null 2>&1 || die "not inside a git repository"
+
+command -v gdd >/dev/null 2>&1 || die "gdd not found on PATH"
+
+echo "→ fetching origin (with prune)..."
+git fetch --prune origin >/dev/null 2>&1 || die "failed to fetch origin"
+
+# current branch (so we don't try to delete the one we're on)
+current_branch="$(git rev-parse --abbrev-ref HEAD)"
+
+# collect branches checked out in worktrees
+mapfile -t branches < <(git worktree list --porcelain | awk '/^branch /{sub("refs/heads/","",$2); print $2}')
+
+if [ "${#branches[@]}" -eq 0 ]; then
+  echo "no worktree branches found"
+  exit 0
+fi
+
+deleted=0
+kept=0
+skipped=0
+
+for branch in "${branches[@]}"; do
+  if [ "$branch" = "$current_branch" ]; then
+    echo "• skipping '${branch}' (current branch)"
+    skipped=$((skipped + 1))
+    continue
+  fi
+
+  if git show-ref --verify --quiet "refs/remotes/origin/${branch}"; then
+    echo "• keeping '${branch}' (exists on origin)"
+    kept=$((kept + 1))
+  else
+    echo "• '${branch}' missing on origin → gdd"
+    gdd "$branch"
+    deleted=$((deleted + 1))
+  fi
+done
+
+echo
+echo "✓ done — deleted: ${deleted}, kept: ${kept}, skipped: ${skipped}"
