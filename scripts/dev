@@ -69,11 +69,13 @@ else
   # window 1: shell
   tmux new-session -d -s "$session" -n shell -c "$(pwd)"
 
-  # window 2: vim (stays open as shell after quitting)
-  tmux new-window -t "$session" -n vim -c "$(pwd)" 'nvim; exec $SHELL'
+  # window 2: vim (run inside an interactive shell; stays open as shell after quitting)
+  tmux new-window -t "$session" -n vim -c "$(pwd)"
+  tmux send-keys -t "${session}:vim" 'nvim' C-m
 
-  # window 3: pi
-  tmux new-window -t "$session" -n pi -c "$(pwd)" 'pi'
+  # window 3: pi (run inside an interactive shell so nvm/PATH is loaded)
+  tmux new-window -t "$session" -n pi -c "$(pwd)"
+  tmux send-keys -t "${session}:pi" 'pi' C-m
 
   # focus the shell window
   tmux select-window -t "${session}:0"
