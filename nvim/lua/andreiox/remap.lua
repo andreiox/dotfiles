@@ -18,3 +18,6 @@ vim.keymap.set("n", "<leader>rd", [[:vertical resize -10<CR>]])
 
 -- nu/tap
 vim.keymap.set("n", "<leader>ap", [[i#nu/tap <Esc>]])
+
+-- quit
+vim.keymap.set("n", "<C-d>", [[:q<CR>]])
