@@ -2,10 +2,38 @@
 
 set -euo pipefail
 
+usage() {
+  cat <<'EOF'
+usage: clean-wt [all|-h|--help]
+
+Cleans up worktree branches via gdd.
+
+modes:
+  (no arg)   pushed-only — delete branches that were pushed to origin but the
+             remote branch is gone (e.g. PR merged & deleted). Branches that
+             were never pushed are kept.
+  all        also delete branches that were never pushed to origin.
+
+always kept: the current branch, and branches whose origin/<branch> still exists.
+EOF
+}
+
 die() {
   echo "error: $*" >&2
   exit 1
 }
+
+mode="pushed"
+if [ "$#" -gt 1 ]; then
+  usage >&2
+  die "too many arguments"
+elif [ "$#" -eq 1 ]; then
+  case "$1" in
+    all)        mode="all" ;;
+    -h|--help)  usage; exit 0 ;;
+    *)          usage >&2; die "unknown argument: $1" ;;
+  esac
+fi
 
 # check we're inside a git repo
 git rev-parse --git-dir >/dev/null 2>&1 || die "not inside a git repository"
@@ -14,6 +42,12 @@ command -v gdd >/dev/null 2>&1 || die "gdd not found on PATH"
 
 echo "→ fetching origin (with prune)..."
 git fetch --prune origin >/dev/null 2>&1 || die "failed to fetch origin"
+
+if [ "$mode" = "all" ]; then
+  echo "→ mode: all (delete gone-from-origin AND never-pushed)"
+else
+  echo "→ mode: pushed-only (delete only gone-from-origin; keep never-pushed)"
+fi
 
 # current branch (so we don't try to delete the one we're on)
 current_branch="$(git rev-parse --abbrev-ref HEAD)"
@@ -27,7 +61,8 @@ if [ "${#branches[@]}" -eq 0 ]; then
 fi
 
 deleted=0
-kept=0
+kept_on_origin=0
+kept_unpushed=0
 skipped=0
 
 for branch in "${branches[@]}"; do
@@ -39,13 +74,28 @@ for branch in "${branches[@]}"; do
 
   if git show-ref --verify --quiet "refs/remotes/origin/${branch}"; then
     echo "• keeping '${branch}' (exists on origin)"
-    kept=$((kept + 1))
-  else
-    echo "• '${branch}' missing on origin → gdd"
+    kept_on_origin=$((kept_on_origin + 1))
+    continue
+  fi
+
+  track="$(git for-each-ref --format='%(upstream:track)' "refs/heads/${branch}")"
+
+  if [[ "$track" == *gone* ]]; then
+    echo "• '${branch}' was pushed, gone from origin → gdd"
     gdd "$branch"
     deleted=$((deleted + 1))
+  else
+    # never pushed (no upstream tracking info)
+    if [ "$mode" = "all" ]; then
+      echo "• '${branch}' never pushed → gdd"
+      gdd "$branch"
+      deleted=$((deleted + 1))
+    else
+      echo "• keeping '${branch}' (never pushed)"
+      kept_unpushed=$((kept_unpushed + 1))
+    fi
   fi
 done
 
 echo
-echo "✓ done — deleted: ${deleted}, kept: ${kept}, skipped: ${skipped}"
+echo "✓ done — deleted: ${deleted}, kept-on-origin: ${kept_on_origin}, kept-unpushed: ${kept_unpushed}, skipped: ${skipped}"
