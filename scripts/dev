@@ -11,18 +11,31 @@ die() {
 
 # ----- arg parsing ------------------------------------------------------------
 
-if [ $# -ne 1 ]; then
-  echo "usage: dev <branch-name>"
+if [ $# -lt 1 ] || [ $# -gt 2 ]; then
+  echo "usage: dev <branch-name> [base-branch]"
   exit 1
 fi
 
 branch="$1"
+base="${2:-}"
 
 # replace '/' with '-' for the worktree directory name
 dir_name="${branch//\//-}"
 
 # check we're inside a git repo
 git rev-parse --git-dir >/dev/null 2>&1 || die "not inside a git repository"
+
+# resolve the base branch to a usable ref (local branch or remote tracking)
+base_ref=""
+if [ -n "$base" ]; then
+  if git show-ref --verify --quiet "refs/heads/$base"; then
+    base_ref="$base"
+  elif git show-ref --verify --quiet "refs/remotes/origin/$base"; then
+    base_ref="origin/$base"
+  else
+    die "base branch '$base' not found"
+  fi
+fi
 
 # ----- git worktree -----------------------------------------------------------
 
@@ -47,6 +60,10 @@ elif git show-ref --verify --quiet "refs/heads/$branch"; then
 elif git show-ref --verify --quiet "refs/remotes/origin/$branch"; then
   echo "→ creating worktree at ${worktree_path} for remote branch 'origin/${branch}'..."
   git worktree add "$worktree_path" -b "$branch" "origin/$branch"
+  copy_env_and_pi "$(pwd)" "$worktree_path"
+elif [ -n "$base_ref" ]; then
+  echo "→ creating worktree at ${worktree_path} for new branch '${branch}' off '${base_ref}'..."
+  git worktree add "$worktree_path" -b "$branch" "$base_ref"
   copy_env_and_pi "$(pwd)" "$worktree_path"
 else
   echo "→ creating worktree at ${worktree_path} for new branch '${branch}'..."
