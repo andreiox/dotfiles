@@ -10,7 +10,7 @@ die() {
 # ----- arg parsing ------------------------------------------------------------
 
 if [ $# -ne 1 ]; then
-  echo "usage: gdd <branch-name>"
+  echo "usage: gitdd <branch-name>"
   exit 1
 fi
 

@@ -6,7 +6,7 @@ usage() {
   cat <<'EOF'
 usage: clean-wt [all|-h|--help]
 
-Cleans up worktree branches via gdd.
+Cleans up worktree branches via gitdd.
 
 modes:
   (no arg)   pushed-only — delete branches that were pushed to origin but the
@@ -38,7 +38,7 @@ fi
 # check we're inside a git repo
 git rev-parse --git-dir >/dev/null 2>&1 || die "not inside a git repository"
 
-command -v gdd >/dev/null 2>&1 || die "gdd not found on PATH"
+command -v gitdd >/dev/null 2>&1 || die "gitdd not found on PATH"
 
 echo "→ fetching origin (with prune)..."
 git fetch --prune origin >/dev/null 2>&1 || die "failed to fetch origin"
@@ -81,14 +81,14 @@ for branch in "${branches[@]}"; do
   track="$(git for-each-ref --format='%(upstream:track)' "refs/heads/${branch}")"
 
   if [[ "$track" == *gone* ]]; then
-    echo "• '${branch}' was pushed, gone from origin → gdd"
-    gdd "$branch"
+    echo "• '${branch}' was pushed, gone from origin → gitdd"
+    gitdd "$branch"
     deleted=$((deleted + 1))
   else
     # never pushed (no upstream tracking info)
     if [ "$mode" = "all" ]; then
-      echo "• '${branch}' never pushed → gdd"
-      gdd "$branch"
+      echo "• '${branch}' never pushed → gitdd"
+      gitdd "$branch"
       deleted=$((deleted + 1))
     else
       echo "• keeping '${branch}' (never pushed)"
