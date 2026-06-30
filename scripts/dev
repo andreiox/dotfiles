@@ -77,6 +77,19 @@ cd "$worktree_path"
 # ----- tmux session -----------------------------------------------------------
 
 session="dev-${dir_name}"
+worktree_abs="$(pwd)"
+
+# Make sure the tmux server is rooted at a stable directory ($HOME). If the
+# server is first spawned from inside a worktree, its working directory becomes
+# invalid the moment that worktree is removed, and every *new* pane then inherits
+# the dangling cwd and dies with:
+#   shell-init: error retrieving current directory: getcwd: cannot access ...
+# (the broken server cwd also makes tmux silently ignore `-c`). Spawning the
+# server from $HOME up front makes it immune to worktree deletion. This is a
+# no-op when a server is already running.
+if ! tmux info >/dev/null 2>&1; then
+  (cd "$HOME" && tmux start-server)
+fi
 
 if tmux has-session -t="$session" 2>/dev/null; then
   echo "→ tmux session '${session}' already exists, attaching..."
@@ -84,14 +97,14 @@ else
   echo "→ starting tmux session '${session}'..."
 
   # window 1: shell
-  tmux new-session -d -s "$session" -n shell -c "$(pwd)"
+  tmux new-session -d -s "$session" -n shell -c "$worktree_abs"
 
   # window 2: vim (run inside an interactive shell; stays open as shell after quitting)
-  tmux new-window -t "$session" -n vim -c "$(pwd)"
+  tmux new-window -t "$session" -n vim -c "$worktree_abs"
   tmux send-keys -t "${session}:vim" 'nvim' C-m
 
   # window 3: pi (run inside an interactive shell so nvm/PATH is loaded)
-  tmux new-window -t "$session" -n pi -c "$(pwd)"
+  tmux new-window -t "$session" -n pi -c "$worktree_abs"
   tmux send-keys -t "${session}:pi" 'pi' C-m
 
   # focus the shell window
